@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>角色动画</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/ui.css" rel="stylesheet" type="text/css" />
+<link href="css/character.css" rel="stylesheet" type="text/css" />
+<link href="css/animate-moz.css" rel="stylesheet" type="text/css" />
+<link href="css/animate-webkit.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="body">
+<div class="stage">
+    <canvas class="stage-back"></canvas>
+    <div class="base" style="left:320px; top:300px;">
+        <div class="shadow"></div>
+        <div class="unit">
+            <div class="bone-foot-r">
+                <div class="foot-r01"></div>
+            </div>
+            <div class="bone-foot-l">
+                <div class="foot-l01"></div>
+            </div>
+            <div class="bone-body">
+                <div class="body01"></div>
+            </div>
+            <div class="bone-arm-r">
+                <div class="bone-weapon">
+                    <div class="w01"></div>
+                </div>
+                <div class="arm-r01"></div>
+            </div>
+            <div class="bone-head">
+                <div class="bone-hair">
+                    <div class="hair01"></div>
+                </div>
+                <div class="head01"></div>
+                <div class="bone-face">
+                    <div class="face01-1"></div>
+                </div>
+            </div>
+            <div class="bone-arm-l">
+                <div class="arm-l01"></div>
+            </div>
+            <div class="link"></div>
+        </div>
+        <div class="link"></div>
+    </div>
+    
+</div>
+
+<!-- 背包 -->
+<div class="control-panel" style="right:30px; left:auto">
+	<div class="box-handle"></div>
+    <div class="char-bag">
+    	<h5 class="mb-10">Item bag</h5>
+    	<ul>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)">
+            	<span class="iwa001" draggable="true" ondragstart="drag(event)" id="drag1"></span>
+            </li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        </ul>
+    </div>
+</div>
+<!-- /背包 -->
+
+<!-- 装备 -->
+<div class="control-panel" style="right:260px; left:auto">
+	<div class="box-handle"></div>
+    <div class="char-equ">
+    	<h5 class="mb-10">Character equipped</h5>
+		<dl><dt>身体</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+		<dl><dt>肩部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+		<dl><dt>腕部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+		<dl><dt>武器</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+		<dl><dt>腿部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)">
+        	<span class="iwa001" draggable="true" ondragstart="drag(event)" id="drag2"></span>
+        </dd></dl>
+		<dl><dt>脚部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+    </div>
+</div>
+<!-- /装备 -->
+
+<!-- 模型数据信息 -->
+<div class="control-panel">
+	<div class="box-handle"></div>
+    <div class="modify-pos-info">
+    	<h5 class="mb-10">Models node</h5>
+        <dl id="bone_list">
+            <dt>Bone node list:</dt>
+            <dd>
+            <select>
+                <option>Select a bone</option>
+            </select>
+            </dd>
+        </dl>
+        <dl id="tex_list">
+            <dt>Texture node list:</dt>
+            <dd>
+            <select>
+                <option>Select a texture</option>
+            </select>
+            </dd>
+        </dl>
+    </div>
+    <div class="modify-pos-info">
+    	<h5 class="mb-10">Control panel</h5>
+        <dl id="proto1"><dt>Current object:</dt><dd>NULL</dd></dl>
+        <dl id="proto10"><dt>Father:</dt><dd>NULL</dd></dl>
+        <dl id="proto8"><dt>Mouse left:</dt><dd>off</dd></dl>
+        <dl id="proto9"><dt>Mouse right:</dt><dd>off</dd></dl>
+        <dl id="proto2"><dt>MouseX:</dt><dd>NULL</dd></dl>
+        <dl id="proto3"><dt>MouseY:</dt><dd>NULL</dd></dl>
+        <dl id="proto4"><dt>Offset left:</dt><dd>NULL</dd></dl>
+        <dl id="proto5"><dt>Offset top:</dt><dd>NULL</dd></dl>
+        <dl id="proto6"><dt>Position left:</dt><dd>NULL</dd></dl>
+        <dl id="proto7"><dt>Position top:</dt><dd>NULL</dd></dl>
+        <dl id="proto11"><dt>Rotate:</dt><dd>0°</dd></dl>
+        <dl><dt>Bone point:</dt><dd><span id="base_see" class="switch-off"></span></dd></dl>
+        <dl id="basetxt_see" class="hide"><dt>Bone text:</dt><dd><span class="switch-off"></span></dd></dl>
+        <dl><dt>Scale:</dt><dd><span id="mod_see" class="switch-off"></span></dd></dl>
+        <dl id="rev"><dt>Reverse:</dt><dd><span class="switch-off"></span></dd></dl>
+        <dl id="animate_list">
+            <dt>Animate:</dt>
+            <dd>
+            <select>
+                <option>nothing</option>
+                <option value="stand1">stand1</option>
+                <option value="walk1">walk1</option>
+                <option value="attack1">attack1</option>
+            </select>
+            </dd>
+        </dl>
+    </div>
+</div>
+<!-- /模型数据信息 -->
+</body>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/mod_modify.js" type="text/javascript"></script>
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+$(function(){
+	$('.char-bag').find('li').bind()
+})
+</script>
+</html>

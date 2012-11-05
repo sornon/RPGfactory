@@ -1,0 +1,30 @@
+* { -moz-user-select: -moz-none; -webkit-user-select: none; user-select: none; }
+.modify-pos-info dd { -moz-user-select: text; -webkit-user-select: text; user-select: text; }
+
+/* 舞台 */
+.stage{ position:absolute;background:#fff; width:640px; height:480px; left:50%; top:50%; margin:-240px auto auto -320px;box-shadow:0px 3px 8px rgba(0,0,0,0.4); overflow:hidden}
+.stage-back{position:absolute;width:640px; height:480px; background:#eee;-webkit-perspective: 800px;-moz-perspective: 800px;}
+
+/* UI样式 */
+.control-panel { position: absolute; z-index: 1000; left: 30px; top: 30px; box-shadow: 1px 3px 20px rgba(0,0,0,0.4); -webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 0px; -moz-border-radius-bottomleft: 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
+.control-panel h5 { font-size: 14px; }
+.modsee div{background-color: rgba(0,0,0,0.2)}
+.base div:hover, .base:hover, .modsee .current, .modsee .current > div { background-color: rgba(255,0,0,0.3) }
+.modify-pos-info { background: #eee; width: 280px; padding: 10px 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff; }
+.modify-pos-info * { font-family: Verdana, Geneva, sans-serif }
+.modify-pos-info dl { height: 24px; }
+.modify-pos-info dt { float: left; width: 116px; text-align: right }
+.modify-pos-info dd { float: left; width: 150px; text-align: left; padding-left: 10px; white-space: nowrap }
+.modify-pos-info dd select { width: 140px; }
+.switch-on, .switch-off { width: 50px; height: 17px; background: url(../images/icon/icon1.png); display: block; cursor: pointer }
+.switch-on { background-position: 0px 0px; }
+.switch-off { background-position: 0px -29px; }
+.box-handle { height: 20px; cursor: move; background-color: #555; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), to(#444)); background: -moz-linear-gradient(0% 0% 270deg, #777777, #444444); border-bottom: 1px solid #222; -webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 0px; -moz-border-radius-bottomleft: 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
+
+/* 背包 */
+.char-bag{background: #eee; width: 200px; height:240px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+.char-bag li{ float:left; width:40px; height:40px; background:#fff; margin:8px 8px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset}
+.char-equ{background: #eee; width: 210px; height:240px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+.char-equ dl { width:100px; height:40px; float:left;margin:10px 0px 0 0;}
+.char-equ dt { float: left; width: 30px; height:40px; line-height:40px; text-align: right; padding:0 10px 0 0 }
+.char-equ dd { float: left; width:40px; height:40px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}

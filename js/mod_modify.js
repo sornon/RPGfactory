@@ -10,6 +10,13 @@ var mod_modify = {
 		this._mouseRight = v;
 		v == 0 ? $('#proto9 dd').text('off') :  $('#proto9 dd').text('on');
 	},
+	mr:function(e){
+		if(e.which == 2 || e.which == 3 || e.button == 2 || e.button == 3 ){
+			return true
+		}else{
+			return false
+		}
+	},
 	pageX:0,
 	pageY:0,
 	pageX0:null,
@@ -27,11 +34,17 @@ var mod_modify = {
 	
 	
 	init:function(){
+		document.oncontextmenu=function(e){return false;} 
 		
+		$(document).bind('mousedown',function(e){
+			mod_modify.mr(e) ? mod_modify.mouseRight(1) : mod_modify.mouseLeft(1);
+		})
 		
+		//拖拽结束
 		$(document).bind('mouseup',function(e){
-			e.button == 0 ? mod_modify.mouseLeft(0) : mod_modify.mouseRight(0);
+			mod_modify.mr(e) ? mod_modify.mouseRight(0) : mod_modify.mouseLeft(0);
 			$(document).unbind('mousemove');
+			mod_modify.mousePos();
 			mod_modify.getModInfo(mod_modify.$current);
 			
 		});
@@ -41,30 +54,28 @@ var mod_modify = {
 			mousedown:function(e){
 				e.preventDefault();
 				e.stopPropagation();
-				mod_modify.mouseLeft(1);
-				$('.current').removeClass('current');
-				if($(this).hasClass('link')){
-					//$(this).css('z-index','103');
-					mod_modify.$current = $(this).parent();
+				if(mod_modify.mr(e)){
+					mod_modify.mouseRight(1);
 				}else{
-					mod_modify.$current = $(this);
+					mod_modify.mouseLeft(1);
+					$('.current').removeClass('current');
+					if($(this).hasClass('link')){
+						//$(this).css('z-index','103');
+						mod_modify.$current = $(this).parent();
+					}else{
+						mod_modify.$current = $(this);
+					}
+					mod_modify.$current.addClass('current');
+					mod_modify.getModInfo(mod_modify.$current);
+					//mod_modify.$current.css('z-index','102');
+					mod_modify.pageX0 = e.pageX;
+					mod_modify.pageY0 = e.pageY;
+					//拖拽过程
+					$(document).bind('mousemove',function(e){	
+						mod_modify.modMove(e);
+					});
 				}
-				mod_modify.$current.addClass('current');
-				mod_modify.getModInfo(mod_modify.$current);
-				//mod_modify.$current.css('z-index','102');
-				mod_modify.pageX0 = e.pageX;
-				mod_modify.pageY0 = e.pageY;
-				//拖拽过程
-				$(document).bind('mousemove',function(e){	
-					mod_modify.modMove(e);
-				});
-			},
-			//拖拽结束
-			mouseup:function(e){
-				mod_modify.mouseLeft(0);
-				$(document).unbind('mousemove');
-				//$('.base div').css('z-index','');
-			},
+			}
 		});
 		
 		//鼠标控制移动
@@ -303,7 +314,14 @@ var mod_modify = {
 		list = '<select>'+list+'</select>';
 		$('#tex_list dd').html(list);
 	},
-	
+	mousePos:function(){
+		$(document).bind('mousemove',function(e){
+			mod_modify.pageX = e.pageX;
+			mod_modify.pageY = e.pageY;
+			$('#proto2 dd').text(mod_modify.pageX);
+			$('#proto3 dd').text(mod_modify.pageY);
+		});
+	},
 	modMove:function(e){	
 		//获取鼠标坐标	
 		mod_modify.pageX = e.pageX;
@@ -371,12 +389,7 @@ var mod_modify = {
 				$(document).bind('mousemove',function(e){	
 					mod_modify.uiMove(e);
 				});
-			},
-			//拖拽结束
-			mouseup:function(e){
-				mod_modify.mouseLeft(0);
-				$(document).unbind('mousemove');
-			},
+			}
 		});
 	}
 }

@@ -54,24 +54,24 @@
     <div class="char-bag">
     	<h5 class="mb-10">Item bag</h5>
     	<ul>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)">
-            	<span class="iwa001" draggable="true" ondragstart="drag(event)" id="drag1"></span>
+        	<li>
+            	<span class="iwa001"></span>
             </li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
-        	<li ondrop="drop(event)" ondragover="allowDrop(event)"></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
         </ul>
     </div>
 </div>
@@ -82,14 +82,14 @@
 	<div class="box-handle"></div>
     <div class="char-equ">
     	<h5 class="mb-10">Character equipped</h5>
-		<dl><dt>身体</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
-		<dl><dt>肩部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
-		<dl><dt>腕部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
-		<dl><dt>武器</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
-		<dl><dt>腿部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)">
+		<dl><dt>身体</dt><dd></dd></dl>
+		<dl><dt>肩部</dt><dd></dd></dl>
+		<dl><dt>腕部</dt><dd></dd></dl>
+		<dl><dt>武器</dt><dd></dd></dl>
+		<dl><dt>腿部</dt><dd>
         	<span class="iwa001" draggable="true" ondragstart="drag(event)" id="drag2"></span>
         </dd></dl>
-		<dl><dt>脚部</dt><dd ondrop="drop(event)" ondragover="allowDrop(event)"></dd></dl>
+		<dl><dt>脚部</dt><dd></dd></dl>
     </div>
 </div>
 <!-- /装备 -->
@@ -150,26 +150,10 @@
 </body>
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/mod_modify.js" type="text/javascript"></script>
+<script src="js/ui.js" type="text/javascript"></script>
 <script>
-function allowDrop(ev)
-{
-ev.preventDefault();
-}
-
-function drag(ev)
-{
-ev.dataTransfer.setData("Text",ev.target.id);
-}
-
-function drop(ev)
-{
-ev.preventDefault();
-ev.stopPropagation();
-var data=ev.dataTransfer.getData("Text");
-ev.target.appendChild(document.getElementById(data));
-}
 $(function(){
-	$('.char-bag').find('li').bind()
+
 })
 </script>
 </html>

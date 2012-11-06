@@ -10,10 +10,10 @@
 .control-panel h5 { font-size: 14px; }
 .modsee div{background-color: rgba(0,0,0,0.2)}
 .base div:hover, .base:hover, .modsee .current, .modsee .current > div { background-color: rgba(255,0,0,0.3) }
-.modify-pos-info { background: #eee; width: 280px; padding: 10px 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff; }
+.modify-pos-info { background: #eee; width: 350px; padding: 10px 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff; }
 .modify-pos-info * { font-family: Verdana, Geneva, sans-serif }
 .modify-pos-info dl { height: 24px; }
-.modify-pos-info dt { float: left; width: 116px; text-align: right }
+.modify-pos-info dt { float: left; width: 186px; text-align: right }
 .modify-pos-info dd { float: left; width: 150px; text-align: left; padding-left: 10px; white-space: nowrap }
 .modify-pos-info dd select { width: 140px; }
 .switch-on, .switch-off { width: 50px; height: 17px; background: url(../images/icon/icon1.png); display: block; cursor: pointer }

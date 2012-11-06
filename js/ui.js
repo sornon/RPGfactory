@@ -24,6 +24,11 @@ var ui = {
 	moveLeft:null,
 	moveTop:null,
 	droped:0,
+	init:function(){
+		$(document).bind('mouseup',function(e){
+			ui.drop();
+		});
+	},
 	drag:function(obj,target){
 		var o = obj;
 		var t;
@@ -72,13 +77,27 @@ var ui = {
 			});
 		}
 	},
+	drop:function(obj,source){
+			var o = ui.$move;
+			var s = ui.$beginContainer;
+			if(obj) o = obj;
+			if(source) s = source;
+			$(document).unbind('mousemove');
+			if(ui._mouseLeft == 1){
+				o.appendTo(s);
+				o.removeAttr('style');
+				ui.mouseLeft(0);
+				ui.droped = 1;
+			}
+	}
 	
 
 }
 
 
 $(function(){
-	$('.char-bag li span').each(function() {
+	ui.init();
+	$('.candrop > span').each(function() {
         ui.drag($(this));
     });
 })

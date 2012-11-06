@@ -46,13 +46,6 @@ var mod_modify = {
 			$(document).unbind('mousemove');
 			mod_modify.mousePos();
 			mod_modify.getModInfo(mod_modify.$current);
-			if(ui._mouseLeft == 1){
-				ui.$move.appendTo(ui.$beginContainer);
-				ui.$move.removeAttr('style');
-				ui.mouseLeft(0);
-				ui.droped = 1;
-			}
-			
 		});
 		
 		$('.candrop').bind('mouseover',function(e){
@@ -66,6 +59,11 @@ var mod_modify = {
 		$(document).bind('mouseover',function(e){
 			if(ui.droped == 1){
 				ui.droped = 0;
+				if(confirm('是否扔掉物品？')){
+					ui.$move.remove();
+				}else{
+					return false;
+				}
 			}
 		})
 		

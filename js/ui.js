@@ -28,6 +28,25 @@ var ui = {
 		$(document).bind('mouseup',function(e){
 			ui.drop();
 		});
+		
+		$('.candrop').bind('mouseover',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			if(ui.droped == 1){
+				ui.droped = 0;
+				ui.$move.appendTo($(this));
+			}
+		})
+		$(document).bind('mouseover',function(e){
+			if(ui.droped == 1){
+				ui.droped = 0;
+				if(confirm('是否扔掉物品？')){
+					ui.$move.remove();
+				}else{
+					return false;
+				}
+			}
+		})
 	},
 	drag:function(obj,target){
 		var o = obj;

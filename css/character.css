@@ -36,4 +36,7 @@ body .current{ z-index:105}
 .bone-foot-r{left:-9px;top:37px; z-index:100}
 
 /* 装备icon */
-.iwa001 { background:#999; display:block; width:38px; height:38px; border:1px solid #666}
+.iwa001 { background:url(../images/icon/item1.png) no-repeat 0px 0px; display:block; width:56px; height:56px; border:2px solid #999}
+.iwa002 { background:url(../images/icon/item1.png) no-repeat -56px 0px; display:block; width:56px; height:56px; border:2px solid #999}
+.iwa003 { background:url(../images/icon/item2.png) no-repeat 0px 0px; display:block; width:56px; height:56px; border:2px solid #999}
+.iwa004 { background:url(../images/icon/item3.png) no-repeat 0px 0px; display:block; width:56px; height:56px; border:2px solid #999}

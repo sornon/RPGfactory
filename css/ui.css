@@ -22,9 +22,10 @@
 .box-handle { height: 20px; cursor: move; background-color: #555; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), to(#444)); background: -moz-linear-gradient(0% 0% 270deg, #777777, #444444); border-bottom: 1px solid #222; -webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 0px; -moz-border-radius-bottomleft: 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
 
 /* 背包 */
-.char-bag{background: #eee; width: 200px; height:240px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
-.char-bag li{ float:left; width:40px; height:40px; background:#fff; margin:8px 8px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset}
-.char-equ{background: #eee; width: 210px; height:240px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
-.char-equ dl { width:100px; height:40px; float:left;margin:10px 0px 0 0;}
-.char-equ dt { float: left; width: 30px; height:40px; line-height:40px; text-align: right; padding:0 10px 0 0 }
-.char-equ dd { float: left; width:40px; height:40px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}
+.char-bag{background: #eee; width: 280px; height:320px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+.char-bag li{ float:left; width:60px; height:60px; background:#fff; margin:8px 8px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset}
+.char-equ{background: #eee; width: 250px; height:270px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+.char-equ dl { width:120px; height:60px; float:left;margin:10px 0px 0 0;}
+.char-equ dt { float: left; width: 30px; height:60px; line-height:60px; text-align: right; padding:0 10px 0 0 }
+.char-equ dd { float: left; width:60px; height:60px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}
+.candrop span {width:52px; height:18px; padding:38px 4px 0 0; border:2px solid #999; text-align:right; font:bold 14px/16px Verdana, Geneva, sans-serif; color:#fff;text-shadow:0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000;}

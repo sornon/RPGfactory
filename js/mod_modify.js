@@ -48,25 +48,6 @@ var mod_modify = {
 			mod_modify.getModInfo(mod_modify.$current);
 		});
 		
-		$('.candrop').bind('mouseover',function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			if(ui.droped == 1){
-				ui.droped = 0;
-				ui.$move.appendTo($(this));
-			}
-		})
-		$(document).bind('mouseover',function(e){
-			if(ui.droped == 1){
-				ui.droped = 0;
-				if(confirm('是否扔掉物品？')){
-					ui.$move.remove();
-				}else{
-					return false;
-				}
-			}
-		})
-		
 		//拖拽开始
 		$('.base div').bind({
 			mousedown:function(e){

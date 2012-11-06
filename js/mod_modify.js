@@ -46,8 +46,28 @@ var mod_modify = {
 			$(document).unbind('mousemove');
 			mod_modify.mousePos();
 			mod_modify.getModInfo(mod_modify.$current);
+			if(ui._mouseLeft == 1){
+				ui.$move.appendTo(ui.$beginContainer);
+				ui.$move.removeAttr('style');
+				ui.mouseLeft(0);
+				ui.droped = 1;
+			}
 			
 		});
+		
+		$('.candrop').bind('mouseover',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			if(ui.droped == 1){
+				ui.droped = 0;
+				ui.$move.appendTo($(this));
+			}
+		})
+		$(document).bind('mouseover',function(e){
+			if(ui.droped == 1){
+				ui.droped = 0;
+			}
+		})
 		
 		//拖拽开始
 		$('.base div').bind({

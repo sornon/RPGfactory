@@ -15,6 +15,7 @@ body .current{ z-index:105}
 .face01-1{ z-index:100;background:url(../images/character/face/01-1.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
 .face01-2{ z-index:100;background:url(../images/character/face/01-2.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
 .head01{ z-index:100;background:url(../images/character/head/01.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
+.head02{ z-index:100;background:url(../images/character/head/02.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
 .hair01{ z-index:100;background:url(../images/character/hair/01.png) no-repeat; width:59px; height:47px;left:-4px;top:-24px;}
 .body01{ z-index:100;background:url(../images/character/body/01.png) no-repeat; width:36px; height:47px;left:-17px;top:-40px;}
 .arm-r01{ z-index:100;background:url(../images/character/armright/01.png) no-repeat; width:46px; height:43px;left:-40px;top:-5px;}

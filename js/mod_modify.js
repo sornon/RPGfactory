@@ -375,8 +375,6 @@ var mod_modify = {
 		target ? t = target : t = o;
 		o.bind({
 			mousedown:function(e){
-				e.preventDefault();
-				e.stopPropagation();
 				mod_modify.mouseLeft(1);
 				t.appendTo('body');
 				mod_modify.$move = t;
@@ -403,6 +401,9 @@ $(function(){
 	mod_modify.see('rev dd span');
 	$('.box-handle').each(function() {
         mod_modify.canMove($(this),$(this).parent());
+    });
+	$('.item-split').each(function() {
+        mod_modify.canMove($(this),$(this));
     });
 	$('.unit').mousedown().mouseup();
 	

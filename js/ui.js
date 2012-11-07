@@ -30,40 +30,65 @@ var ui = {
 	moveLeft:null,
 	moveTop:null,
 	droped:0,
+	shiftkey:0,
 	init:function(){
+		//shift状态判断 用来切分物品
+		$(document).bind({
+			'keydown':function(e){
+				if(e.shiftKey) ui.shiftkey = 1;
+			},
+			'keyup':function(e){
+				if(!e.shiftKey) ui.shiftkey = 0;
+			}
+		})
+		
+		//右键装备
 		$(document).bind('mouseup',function(e){
-			if(ui.mr(e)){
-				if(ui.$move.closest('.char-equ').size()>0){
-					$('.candrop').removeAttr('style');
-					ui.$move.appendTo(ui.spaceBag())
+			if(ui.$move){
+				if(ui.mr(e)){
+					//换装备
+					if(ui.$move){
+						ui.dropChange();
+						ui.$move = null;
+					}
 				}else{
-					$('.'+ui.$move.attr('socket')).first().find('span').appendTo(ui.$beginContainer);
-					ui.$move.appendTo($('.'+ui.$move.attr('socket')).first());
-					$('.candrop').removeAttr('style');
+					//穿、脱装备
+					ui.drop();
 				}
-			}else{
-				ui.drop();
 			}
 		});
-		
+		$(document).bind('mouseover',function(e){
+			//是否丢弃
+			ui.droped = 0;
+		});
+		//识别松开鼠标后的当前对象，完成拖放
 		$('.candrop').bind('mouseover',function(e){
 			e.preventDefault();
 			e.stopPropagation();
+			//拖放状态
 			if(ui.droped == 1){
 				ui.droped = 0;
-				if($(this).find('span').size()>0){
+				//当前槽位是否有装备
+				if($(this).find('.candrag').size()>0){
+					//当前槽位是否匹配
 					if($(this).hasClass(ui.$move.attr('socket'))){
-						$(this).find('span').appendTo(ui.$beginContainer);
+						//槽位已有装备放入背包
+						$(this).find('.candrag').appendTo(ui.$beginContainer);
+						//拖拽物放入装备槽位
 						ui.$move.appendTo($(this));
 					}
 				}else{
-					if($(this).hasClass(ui.$move.attr('socket'))){
+					//当前槽位是否匹配
+					if($(this).hasClass(ui.$move.attr('socket')) || $(this).hasClass('isbag')){
 						ui.$move.appendTo($(this));
 					}
 				}
+				//清空当前对象
+				ui.$move = null;
 			}
 		})
 	},
+	//抓起
 	drag:function(obj,target){
 		var o = obj;
 		var t;
@@ -82,24 +107,28 @@ var ui = {
 				if(ui.mr(e)){
 					ui.mouseRight(1);
 				}else{
-					ui.mouseLeft(1);
-					ui.$move.css({
-						'position':'absolute',
-						'left':ui.moveLeft,
-						'top':ui.moveTop,
-						'right':'auto',
-						'z-index':'10000'
-					});
-					o.appendTo('body');
-					$(document).bind('mousemove',function(e){	
-						ui.uiMove(e);
-					});
+					if(ui.shiftkey){
+						
+					}else{
+						ui.mouseLeft(1);
+						ui.$move.css({
+							'position':'absolute',
+							'left':ui.moveLeft,
+							'top':ui.moveTop,
+							'right':'auto',
+							'z-index':'10000'
+						});
+						o.appendTo('body');
+						$(document).bind('mousemove',function(e){	
+							ui.uiMove(e);
+						});
+					}
 				}
 			}
 		});
 	
 	},
-	
+	//拖动中
 	uiMove:function(e){	
 		//获取鼠标坐标	
 		ui.pageX = e.pageX;
@@ -117,6 +146,7 @@ var ui = {
 			});
 		}
 	},
+	//放下
 	drop:function(obj,source){
 			var o = ui.$move;
 			var s = ui.$beginContainer;
@@ -131,6 +161,18 @@ var ui = {
 				ui.droped = 1;
 			}
 	},
+	//放下并更换
+	dropChange:function(){
+			if(ui.$move.closest('.char-equ').size()>0){
+				$('.candrop').removeAttr('style');
+				ui.$move.appendTo(ui.spaceBag())
+			}else{
+				$('.'+ui.$move.attr('socket')).first().find('span').appendTo(ui.$beginContainer);
+				ui.$move.appendTo($('.'+ui.$move.attr('socket')).first());
+				$('.candrop').removeAttr('style');
+			}
+	},
+	//检测背包空位
 	spaceBag:function(){
 		var o = null;
 		$('.isbag').each(function(){
@@ -150,7 +192,7 @@ var ui = {
 
 $(function(){
 	ui.init();
-	$('.candrop > span').each(function() {
+	$('.candrag').each(function() {
         ui.drag($(this));
     });
 })

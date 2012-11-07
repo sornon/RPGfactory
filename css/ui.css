@@ -1,5 +1,10 @@
 * { -moz-user-select: -moz-none; -webkit-user-select: none; user-select: none; }
 .modify-pos-info dd { -moz-user-select: text; -webkit-user-select: text; user-select: text; }
+input { -moz-user-select:all; -webkit-user-select:auto; user-select: auto; }
+
+/* 标准 */
+.em3 { width:3em;}
+
 
 /* 舞台 */
 .stage{ position:absolute;background:#fff; width:640px; height:480px; left:50%; top:50%; margin:-240px auto auto -320px;box-shadow:0px 3px 8px rgba(0,0,0,0.4); overflow:hidden}
@@ -21,6 +26,10 @@
 .switch-off { background-position: 0px -29px; }
 .box-handle { height: 20px; cursor: move; background-color: #555; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), to(#444)); background: -moz-linear-gradient(0% 0% 270deg, #777777, #444444); border-bottom: 1px solid #222; -webkit-border-top-left-radius: 10px; -webkit-border-top-right-radius: 10px; -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; -moz-border-radius-topleft: 10px; -moz-border-radius-topright: 10px; -moz-border-radius-bottomright: 0px; -moz-border-radius-bottomleft: 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; }
 
+/* 表单样式 */
+.t-text1{color:#666;border:1px solid #d9d9d9;border-top:1px solid #c0c0c0;border-radius:1px;display:inline-block;background:#FFF;text-indent:0px}
+.t-text1:hover{border:1px solid #b9b9b9;border-top:1px solid #a0a0a0;box-shadow:0px 1px 2px rgba(0,0,0,0.1) inset}
+
 /* 背包 */
 .char-bag{background: #eee; width: 280px; height:320px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
 .char-bag li{ float:left; width:60px; height:60px; background:#fff; margin:8px 8px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset}
@@ -29,3 +38,11 @@
 .char-equ dt { float: left; width: 30px; height:60px; line-height:60px; text-align: right; padding:0 10px 0 0 }
 .char-equ dd { float: left; width:60px; height:60px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}
 .item {width:52px; height:18px; padding:38px 4px 0 0; border:2px solid #999; text-align:right; font:bold 14px/16px Verdana, Geneva, sans-serif; color:#fff;text-shadow:0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000; display:block; cursor:default}
+
+/* 拆分物品 */
+.item-split { background:rgba(0,0,0,0.9); padding: 10px 15px; position: absolute; z-index: 1000; left: 0px; top: 0px; box-shadow: 1px 3px 20px rgba(0,0,0,0.4); -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; cursor:move}
+.item-split h5{ color:#FC3}
+.item-split dl{ width:100px; height:60px;}
+.item-split dt{ width:70px; float:left}
+.item-split dd{ width:30px; height:60px; float:right}
+.btn-up,.btn-down{ display:block; width:25px; height:25px; background:#FFF}

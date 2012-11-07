@@ -375,6 +375,8 @@ var mod_modify = {
 		target ? t = target : t = o;
 		o.bind({
 			mousedown:function(e){
+				e.preventDefault();
+				e.stopPropagation();
 				mod_modify.mouseLeft(1);
 				t.appendTo('body');
 				mod_modify.$move = t;

@@ -31,20 +31,11 @@ var ui = {
 	moveTop:null,
 	droped:0,
 	shiftkey:0,
-	behide:0,
+	stopProp:function(e){
+		e.preventDefault();
+		e.stopPropagation();
+	},
 	init:function(){
-		//框外点击关闭
-		$(document).bind('mousedown',function(){
-			if(ui.behide == 1){
-				$('.item-split').remove();
-			}
-		})
-		//框内外状态
-		$('.item-split').bind('mouseover',function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			ui.behide = 0;
-		})
 		//shift状态判断 用来切分物品
 		$(document).bind({
 			'keydown':function(e){
@@ -63,13 +54,13 @@ var ui = {
 		$(document).bind('mouseup',function(e){
 			if(ui.$move&&ui.shiftkey ==0){
 				if(ui.mr(e)){
-					//换装备
+					//右键换装备
 					if(ui.$move){
 						ui.dropChange();
 						ui.$move = null;
 					}
 				}else{
-					//穿、脱装备
+					//左键穿、脱装备
 					ui.drop();
 				}
 			}
@@ -77,7 +68,6 @@ var ui = {
 		$(document).bind('mouseover',function(e){
 			//是否丢弃
 			ui.droped = 0;
-			ui.behide = 1;
 		});
 		//识别松开鼠标后的当前对象，完成拖放
 		$('.candrop').bind('mouseover',function(e){
@@ -113,8 +103,8 @@ var ui = {
 		target ? t = target : t = null;
 		o.bind({
 			mousedown:function(e){
-				e.preventDefault();
-				e.stopPropagation();
+				ui.stopProp(e);
+				$('.blurCls').blur();
 				ui.$beginContainer = $(this).parent();
 				ui.$move = o;
 				ui.moveX0 = e.pageX;
@@ -123,13 +113,50 @@ var ui = {
 				ui.moveTop = o.offset().top;
 				$('.'+o.attr('socket')).css('box-shadow','0px 0px 10px #09F')
 				if(ui.mr(e)){
+					//装备右键功能
 					ui.mouseRight(1);
 				}else{
+					//装备左键功能
 					ui.mouseLeft(1);
-					if(ui.shiftkey){
-						ui.matchSocket();
+					if(ui.shiftkey&&ui.$move.text()>1){
 						ui.$move.count = parseInt(ui.$move.text());
-						$('.item-split').show().css({'left':ui.moveLeft-140,'top':ui.moveTop});
+						$html = $('<div class="control-panel item-split blurCls" tabindex="0" style="left:'+(parseInt(ui.moveLeft)-140)+'px; top:'+ui.moveTop+'px;"><h5 class="mb-10">要移动的数量</h5><dl class="mb-10"><dt>'+ui.$beginContainer.html()+'</dt><dd><a class="btn-up mb-10"></a><a class="btn-down"></a></dd></dl><div class="drag-scorll"><b>0</b><p class="drag-scorll-line"><span style="width:100%"><i tabindex="0"></i></span></p><b>MAX</b></div><span class="btn-done" tabindex="0">确定</span></div>');
+						$html.appendTo('body');
+						$html.focus();
+						$('.item-split .item').text(parseInt(ui.$move.text())-1);
+						ui.$move.text('1');
+						//框外点击关闭
+						$html.bind('blur',function(){
+							$(this).remove();
+							ui.$move.text(ui.$move.count);
+							$html.unbind('blur');
+						});
+						$('.item-split .btn-up').bind('mousedown',function(e){
+							ui.stopProp(e);
+							ui.splitItem(0,$('.item-split .item'),ui.$beginContainer.find('.item'));
+						});
+						$('.item-split .btn-down').bind('mousedown',function(e){
+							ui.stopProp(e);
+							ui.splitItem(1,$('.item-split .item'),ui.$beginContainer.find('.item'));
+						});
+						$('.item-split .btn-done').bind('mousedown',function(e){
+							ui.stopProp(e);
+							ui.$move = $('.item-split .item');
+							ui.matchSocket();
+							ui.$move.css({
+								'position':'absolute',
+								'left':ui.moveLeft,
+								'top':ui.moveTop,
+								'right':'auto',
+								'z-index':'10000'
+							});
+							ui.$move.appendTo('body');
+							$('.item-split').blur();
+							$(document).bind('mousemove',function(e){	
+								ui.uiMove2(e);
+							});
+							ui.drag(ui.$move);
+						})
 					}else{
 						ui.$move.css({
 							'position':'absolute',
@@ -157,14 +184,28 @@ var ui = {
 		$('#proto3 dd').text(ui.pageY);
 		//拖拽过程
 		if(ui._mouseLeft == 1){
-			//e.preventDefault();
-			//e.stopPropagation();
+			ui.stopProp(e);
 			ui.$move.css({
 				'left':parseInt(ui.pageX - ui.moveX0) + parseInt(ui.moveLeft),
 				'top':parseInt(ui.pageY - ui.moveY0) + parseInt(ui.moveTop),
 				'right':'auto'
 			});
 		}
+	},
+	//拖动中
+	uiMove2:function(e){	
+		//获取鼠标坐标	
+		ui.pageX = e.pageX;
+		ui.pageY = e.pageY;
+		$('#proto2 dd').text(ui.pageX);
+		$('#proto3 dd').text(ui.pageY);
+		//拖拽过程
+		ui.stopProp(e);
+		ui.$move.css({
+			'left':ui.pageX,
+			'top':ui.pageY,
+			'right':'auto'
+		});
 	},
 	//放下
 	drop:function(obj,source){
@@ -247,15 +288,5 @@ $(function(){
 	$('.candrag').each(function() {
         ui.drag($(this));
     });
-	$('.item-split .btn-up').bind('mousedown',function(e){
-		e.preventDefault();
-		e.stopPropagation();
-		ui.splitItem(0,$('.item-split .iwa004'),$('.isbag .iwa004'));
-	});
-	$('.item-split .btn-down').bind('mousedown',function(e){
-		e.preventDefault();
-		e.stopPropagation();
-		ui.splitItem(1,$('.item-split .iwa004'),$('.isbag .iwa004'));
-	})
 
 })

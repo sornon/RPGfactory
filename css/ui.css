@@ -28,4 +28,4 @@
 .char-equ dl { width:120px; height:60px; float:left;margin:10px 0px 0 0;}
 .char-equ dt { float: left; width: 30px; height:60px; line-height:60px; text-align: right; padding:0 10px 0 0 }
 .char-equ dd { float: left; width:60px; height:60px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}
-.candrop span {width:52px; height:18px; padding:38px 4px 0 0; border:2px solid #999; text-align:right; font:bold 14px/16px Verdana, Geneva, sans-serif; color:#fff;text-shadow:0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000;}
+.item {width:52px; height:18px; padding:38px 4px 0 0; border:2px solid #999; text-align:right; font:bold 14px/16px Verdana, Geneva, sans-serif; color:#fff;text-shadow:0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000; display:block; cursor:default}

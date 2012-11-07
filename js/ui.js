@@ -31,20 +31,37 @@ var ui = {
 	moveTop:null,
 	droped:0,
 	shiftkey:0,
+	behide:0,
 	init:function(){
+		//框外点击关闭
+		$(document).bind('mousedown',function(){
+			if(ui.behide == 1){
+				$('.item-split').remove();
+			}
+		})
+		//框内外状态
+		$('.item-split').bind('mouseover',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			ui.behide = 0;
+		})
 		//shift状态判断 用来切分物品
 		$(document).bind({
 			'keydown':function(e){
-				if(e.shiftKey) ui.shiftkey = 1;
+				if(e.shiftKey){
+					ui.shiftkey = 1;
+				}
 			},
 			'keyup':function(e){
-				if(!e.shiftKey) ui.shiftkey = 0;
+				if(!e.shiftKey){
+					ui.shiftkey = 0;
+				}
 			}
 		})
 		
 		//右键装备
 		$(document).bind('mouseup',function(e){
-			if(ui.$move){
+			if(ui.$move&&ui.shiftkey ==0){
 				if(ui.mr(e)){
 					//换装备
 					if(ui.$move){
@@ -60,11 +77,12 @@ var ui = {
 		$(document).bind('mouseover',function(e){
 			//是否丢弃
 			ui.droped = 0;
+			ui.behide = 1;
 		});
 		//识别松开鼠标后的当前对象，完成拖放
 		$('.candrop').bind('mouseover',function(e){
-			e.preventDefault();
-			e.stopPropagation();
+			//e.preventDefault();
+			//e.stopPropagation();
 			//拖放状态
 			if(ui.droped == 1){
 				ui.droped = 0;
@@ -107,10 +125,12 @@ var ui = {
 				if(ui.mr(e)){
 					ui.mouseRight(1);
 				}else{
+					ui.mouseLeft(1);
 					if(ui.shiftkey){
-						
+						ui.matchSocket();
+						ui.$move.count = parseInt(ui.$move.text());
+						$('.item-split').show().css({'left':ui.moveLeft-140,'top':ui.moveTop});
 					}else{
-						ui.mouseLeft(1);
 						ui.$move.css({
 							'position':'absolute',
 							'left':ui.moveLeft,
@@ -137,8 +157,8 @@ var ui = {
 		$('#proto3 dd').text(ui.pageY);
 		//拖拽过程
 		if(ui._mouseLeft == 1){
-			e.preventDefault();
-			e.stopPropagation();
+			//e.preventDefault();
+			//e.stopPropagation();
 			ui.$move.css({
 				'left':parseInt(ui.pageX - ui.moveX0) + parseInt(ui.moveLeft),
 				'top':parseInt(ui.pageY - ui.moveY0) + parseInt(ui.moveTop),
@@ -184,6 +204,38 @@ var ui = {
 		if(o){ return o;}
 		else{alert('背包已满！请及时清理！')}
 		
+	},
+	//匹配合适背包空位
+	matchSocket:function(obj){
+		$('.isbag').each(function(){
+            if($(this).find('span').size() == 0 ){
+				$(this).css('box-shadow','0px 0px 10px #09F');
+			}
+        });
+	},
+	
+	splitItem:function(math,target,source){
+		var a = math;
+		var t = target;
+		var s =source;
+		var n = parseInt(t.text());
+		var m = parseInt(s.text());
+		var N = parseInt(m+n-1);
+		var l = $('.item-split .drag-scorll-line').find('span');
+		//增加移动数量
+		if( a == 0 && n < N && m > 1 ){
+			t.text(n+1);
+			s.text(m-1);
+			l.css('width',((n+1)/N)*100 + '%')
+		}
+		//减少移动数量
+		if( a == 1 && n > 0 && m < (N+1) ){
+			t.text(n-1);
+			s.text(m+1);
+			l.css('width',((n-1)/N)*100 + '%')
+		}
+		
+		
 	}
 	
 
@@ -195,4 +247,15 @@ $(function(){
 	$('.candrag').each(function() {
         ui.drag($(this));
     });
+	$('.item-split .btn-up').bind('mousedown',function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		ui.splitItem(0,$('.item-split .iwa004'),$('.isbag .iwa004'));
+	});
+	$('.item-split .btn-down').bind('mousedown',function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		ui.splitItem(1,$('.item-split .iwa004'),$('.isbag .iwa004'));
+	})
+
 })

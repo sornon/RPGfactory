@@ -40,9 +40,15 @@ input { -moz-user-select:all; -webkit-user-select:auto; user-select: auto; }
 .item {width:52px; height:18px; padding:38px 4px 0 0; border:2px solid #999; text-align:right; font:bold 14px/16px Verdana, Geneva, sans-serif; color:#fff;text-shadow:0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000,0px 0px 4px #000; display:block; cursor:default}
 
 /* 拆分物品 */
-.item-split { background:rgba(0,0,0,0.9); padding: 10px 15px; position: absolute; z-index: 1000; left: 0px; top: 0px; box-shadow: 1px 3px 20px rgba(0,0,0,0.4); -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; cursor:move}
-.item-split h5{ color:#FC3}
+.item-split { background:rgba(0,0,0,0.9); padding: 10px 15px; position: absolute; z-index: 2000; left: 0px; top: 0px; box-shadow: 1px 3px 20px rgba(0,0,0,0.4); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; cursor:move}
+.item-split h5{ color:#F1ED8A;font: bold 12px/16px simsun}
 .item-split dl{ width:100px; height:60px;}
 .item-split dt{ width:70px; float:left}
 .item-split dd{ width:30px; height:60px; float:right}
-.btn-up,.btn-down{ display:block; width:25px; height:25px; background:#FFF}
+.btn-up,.btn-down{ display:block; width:25px; height:25px; background: url(../images/icon/icon1.png) no-repeat; cursor:pointer;border-radius: 5px;}
+.btn-up{ background-position:-25px -46px;}
+.btn-down{ background-position:0px -46px;}
+.drag-scorll b{ float:left; display:block; height:20px; font:12px/16px; color:#CCC}
+.drag-scorll-line{ float:left; width:60px;height:5px; background:#666;display:block; margin:6px}
+.drag-scorll-line span {display:block;height:5px; position:relative; background:#06F}
+.drag-scorll-line span i { display:block; position:absolute; top:-3px; right:-5px; width:11px; height:11px; background:#eee; cursor:pointer; border-radius:6px;}

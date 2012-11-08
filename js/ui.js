@@ -44,7 +44,7 @@ var ui = {
 	},
 	//抓起
 	drag:function(obj,target){
-					console.log(1001)
+		console.log(1001)
 		var o = obj;
 		var t;
 		target ? t = target : t = null;
@@ -53,7 +53,7 @@ var ui = {
 	},
 	//拖动中
 	uiMove:function(e){	
-					console.log(1002)
+		console.log(1002)
 		//获取鼠标坐标	
 		ui.pageX = e.pageX;
 		ui.pageY = e.pageY;
@@ -69,7 +69,7 @@ var ui = {
 	},
 	//放下
 	drop:function(obj,source){
-					console.log(1003)
+			console.log(1003)
 			var o = ui.$move;
 			var s = ui.$beginContainer;
 			$('.candrop').removeAttr('style')
@@ -85,7 +85,7 @@ var ui = {
 	},
 	//放下并更换
 	dropChange:function(){
-					console.log(1004)
+			console.log(1004)
 			if(ui.$move.closest('.char-equ').size()>0){
 				$('.candrop').removeAttr('style');
 				ui.$move.appendTo(ui.spaceBag())
@@ -97,7 +97,7 @@ var ui = {
 	},
 	//检测背包空位
 	spaceBag:function(){
-					console.log(1005)
+		console.log(1005)
 		var o = null;
 		$('.isbag').each(function(){
             if($(this).find('span').size() == 0 ){
@@ -111,7 +111,7 @@ var ui = {
 	},
 	//匹配合适背包空位
 	matchSocket:function(obj){
-					console.log(1006)
+		console.log(1006)
 		$('.isbag').each(function(){
             if($(this).find('span').size() == 0 ){
 				$(this).css('box-shadow','0px 0px 10px #09F');
@@ -120,7 +120,7 @@ var ui = {
 	},
 	
 	splitItem:function(math,target,source){
-					console.log(1007)
+		console.log(1007)
 		var a = math;
 		var t = target;
 		var s =source;

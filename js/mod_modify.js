@@ -31,6 +31,14 @@ var mod_modify = {
 	moveY0:null,
 	moveLeft:null,
 	moveTop:null,
+	//调试模式开关
+	debug:function(a){
+		if(a==0){
+			window.console.log = function(){};
+		}else{
+		
+		}
+	},
 	
 	
 	init:function(){

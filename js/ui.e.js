@@ -1,6 +1,6 @@
 // JavaScript Document
 ui.e.EquipItem = function(e){
-					console.log(1)
+		console.log(1)
 		if(ui.$move){
 			if(ui.mr(e)){
 				//右键换装备
@@ -22,7 +22,7 @@ ui.e.EquipItem = function(e){
 		
 		
 ui.e.Droped = function(e){
-					console.log(2)
+		console.log(2)
 		//是否丢弃
 		ui.droped = 0;
 		$(document).unbind('mouseover',ui.e.Droped);
@@ -31,7 +31,7 @@ ui.e.Droped = function(e){
 		
 		
 ui.e.EquipItemEnd = function(e){
-					console.log(3)
+		console.log(3)
 		//e.preventDefault();
 		//e.stopPropagation();
 		//拖放状态
@@ -48,26 +48,46 @@ ui.e.EquipItemEnd = function(e){
 			}
 			//当前槽位是否有装备
 			if(t.size()>0){
+				console.log(3.1)
 				//当前槽位是否匹配
 				if($(this).hasClass(ui.$move.attr('socket'))){
+					console.log(3.2)
 					//槽位已有装备放入背包
 					t.appendTo(ui.$beginContainer);
 					//拖拽物放入装备槽位
 					ui.$move.appendTo($(this));
 				}else if(ui.$move.attr('class') == t.attr('class') && mx > mc){
+					console.log(3.3)
 					if(tmc>mx){
+						console.log(3.4)
+						if(tc==mx){
+						//槽位已有装备放入背包
+						t.appendTo(ui.$beginContainer);
+						//拖拽物放入装备槽位
+						ui.$move.appendTo($(this));
+						}else{
 						t.text(mx);
 						ui.$beginContainer.find('.candrag').text(m0+tc-mx);
+						}
 					}else{
+						console.log(3.5)
 						t.text(tmc);
+						ui.$move.remove();
 					}
 				}else{
 					
+					console.log(3.6)
+					//槽位已有装备放入背包
+					t.appendTo(ui.$beginContainer);
+					//拖拽物放入装备槽位
+					ui.$move.appendTo($(this));
 				}
 			
 			}else{
+				console.log(3.7)
 				//当前槽位是否匹配
 				if($(this).hasClass(ui.$move.attr('socket')) || $(this).hasClass('isbag')){
+				console.log(3.8)
 					ui.$move.appendTo($(this));
 				}
 			}
@@ -81,13 +101,13 @@ ui.e.EquipItemEnd = function(e){
 
 //鼠标按下状态跟随
 ui.e.DragFollow = function(e){
-					console.log(4)
+		console.log(4)
 		ui.uiMove(e);
 	}	
 		
 		
 ui.e.DragStart = function(e){
-					console.log(5)
+		console.log(5)
 		ui.stopProp(e);
 		ui.droped = 0;
 		$('.blurCls').blur();
@@ -127,7 +147,9 @@ ui.e.DragStart = function(e){
 					ui.stopProp(e);
 					ui.splitItem(1,$('.item-split .item'),ui.$beginContainer.find('.item'));
 				});
-				$('.item-split .btn-done').bind('mousedown',ui.e.SplitDone)
+				//滑竿
+				$('.drag-scorll-line span i').bind('mousedown',ui.e.SplitZoom);
+				$('.item-split .btn-done').bind('mousedown',ui.e.SplitDone);
 			}else{
 				ui.$move.css({
 					'position':'absolute',
@@ -146,36 +168,43 @@ ui.e.DragStart = function(e){
 	
 
 ui.e.SplitDone = function(e){
-					console.log(6)
+		console.log(6)
 		ui.stopProp(e);
 		$html.unbind('blur');
 		$(document).bind('mouseup',ui.e.SplitMove);
 		$(document).unbind('mouseup',ui.e.EquipItem);
+		$('.drag-scorll-line span i').unbind('mousedown',ui.e.SplitZoom);
+		$(document).unbind('mousemove',ui.e.SplitZooming)
 		$('.item-split .btn-done').unbind('mousedown',ui.e.SplitDone);
 	}
 	
 
 ui.e.SplitMove = function(e){
-					console.log(7)
+		console.log(7)
 		ui.$move = $('.item-split .item');
-		ui.matchSocket();
-		ui.$move.css({
-			'position':'absolute',
-			'left':ui.moveLeft,
-			'top':ui.moveTop,
-			'right':'auto',
-			'z-index':'10000'
-		});
-		ui.$move.appendTo('body');
-		$html.remove();
-		$(document).bind('mousemove',ui.e.SplitFollow);
+		if(ui.$move.text()==0){
+			$html.remove();
+			ui.$move.remove();
+		}else{
+			ui.matchSocket();
+			ui.$move.css({
+				'position':'absolute',
+				'left':ui.moveLeft,
+				'top':ui.moveTop,
+				'right':'auto',
+				'z-index':'10000'
+			});
+			ui.$move.appendTo('body');
+			$html.remove();
+			$(document).bind('mousemove',ui.e.SplitFollow);
+			$(document).bind('click',ui.e.SplitHide);
+		}
 		$(document).unbind('mouseup',ui.e.SplitMove);
-		$(document).bind('click',ui.e.SplitHide);
 	}
 	
 	
 ui.e.SplitFollow = function(e){
-					console.log(8)
+		console.log(8)
 		//获取鼠标坐标	
 		ui.pageX = e.pageX;
 		ui.pageY = e.pageY;
@@ -190,6 +219,7 @@ ui.e.SplitFollow = function(e){
 	}
 
 ui.e.SplitHide = function(e){
+		console.log(9)
 		ui.droped = 1;
 		ui.$move.hide();
 		$(document).bind('mouseover',ui.e.SplitToBack);
@@ -199,6 +229,7 @@ ui.e.SplitHide = function(e){
 
 
 ui.e.SplitToBack = function(e){
+		console.log(10)
 		ui.droped = 0;
 		ui.$beginContainer.find('.candrag').text(ui.moveCount0);
 		ui.$move.remove();
@@ -209,8 +240,9 @@ ui.e.SplitToBack = function(e){
 	
 	
 ui.e.SplitToBag = function(e){
+		console.log(11)
 		ui.stopProp(e);
-		if(ui.droped = 1){
+		if(ui.droped == 1){
 			ui.droped = 0;
 			var m0 = parseInt(ui.moveCount0);
 			var t = $(this).find('.candrag');
@@ -239,4 +271,30 @@ ui.e.SplitToBag = function(e){
 			$(document).unbind('mouseover',ui.e.SplitToBack);
 			$('.isbag').unbind('mouseover',ui.e.SplitToBag);
 		}
+	}
+	
+	
+ui.e.SplitZoom = function(e){
+		console.log(12);
+		ui.stopProp(e);
+		ui.e.SplitZoom.x0 = e.pageX;
+		ui.e.SplitZoom.w0 = $(this).parent('span').width();
+		$(document).bind('mousemove',ui.e.SplitZooming)
+	}
+	
+ui.e.SplitZooming = function(e){
+		console.log(13);
+		ui.stopProp(e);
+		var w = parseInt(ui.e.SplitZoom.w0) - (parseInt(ui.e.SplitZoom.x0) - e.pageX);
+		if(w>60){
+			w = 60;
+		}
+		if(w<0){
+			w = 0;
+		}
+		var n = parseInt(ui.$move.text());
+		n = Math.floor((ui.moveCount0 - 1)*(w/60));
+		$('.drag-scorll-line span').css('width',w)
+		$('.item-split .item').text(n);
+		ui.$beginContainer.find('.item').text(ui.moveCount0 - n)
 	}

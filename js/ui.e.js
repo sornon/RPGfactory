@@ -2,22 +2,25 @@
 ui.e.EquipItem = function(e){
 		console.log(1)
 		if(ui.$move){
-			if(ui.mr(e)){
-				//右键换装备
+			console.log('mouse'+ui.dbclk)
+			if(ui.mr(e)|| ui.dbclk == 2){
+				ui.dbclk = 0;
+				//右键或双击换装备
 				if(ui.$move){
 					console.log(1.1)
 					ui.dropChange();
-					ui.$move = null;
+					//ui.$move = null;
 				}
+				clearTimeout(ui.dbclkT);
 			}else{
 				//左键穿、脱装备
 				ui.drop();
 			}
 		}
 		//识别松开鼠标后的当前对象，完成拖放
-		$('.candrop').bind('mouseover',ui.e.EquipItemEnd);
-		$(document).bind('mouseover',ui.e.Droped);
-		$(document).unbind('mouseup',ui.e.EquipItem);
+		$('.candrop').bind('mouseover touchstart',ui.e.EquipItemEnd);
+		$(document).bind('mouseover touchstart',ui.e.Droped);
+		$(document).unbind('mouseup touchend',ui.e.EquipItem);
 	}
 		
 		
@@ -25,8 +28,8 @@ ui.e.Droped = function(e){
 		console.log(2)
 		//是否丢弃
 		ui.droped = 0;
-		$(document).unbind('mouseover',ui.e.Droped);
-		$('.candrop').unbind('mouseover',ui.e.EquipItemEnd);
+		$(document).unbind('mouseover touchstart',ui.e.Droped);
+		$('.candrop').unbind('mouseover touchstart',ui.e.EquipItemEnd);
 	}
 		
 		
@@ -92,8 +95,8 @@ ui.e.EquipItemEnd = function(e){
 				}
 			}
 			//清空当前对象
-			$(document).unbind('mousemove',ui.e.DragFollow);
-			$('.candrop').unbind('mouseover',ui.e.EquipItemEnd);
+			$(document).unbind('mousemove touchmove',ui.e.DragFollow);
+			$('.candrop').unbind('mouseover touchstart',ui.e.EquipItemEnd);
 			//ui.$move = null;
 		}
 	}
@@ -112,15 +115,24 @@ ui.e.DragStart = function(e){
 		ui.droped = 0;
 		$('.blurCls').blur();
 		ui.$beginContainer = $(this).parent();
+		//鼠标双击状态判定
+		if(ui.dbclk == 0){
+			ui.dbclk = 1;
+		}else{
+			ui.dbclk = 2;
+		}
+		//双击时间周期
+		ui.dbclkT = setTimeout(function(){ui.dbclk = 0},500);
 		ui.$move = $(this);
 		ui.moveX0 = e.pageX;
 		ui.moveY0 = e.pageY;
 		ui.moveLeft = $(this).offset().left;
 		ui.moveTop = $(this).offset().top;
 		$('.'+$(this).attr('socket')).css('box-shadow','0px 0px 10px #09F');
-		if(ui.mr(e)){
+		ui.$beginContainer.css('box-shadow','0px 0px 10px #09F');
+		if(ui.mr(e)|| ui.dbclk == 2){
 			//鼠标松开左右键换装备
-			$(document).bind('mouseup',ui.e.EquipItem);
+			$(document).bind('mouseup touchend',ui.e.EquipItem);
 			//装备右键功能
 			ui.mouseRight(1);
 		}else{
@@ -139,17 +151,17 @@ ui.e.DragStart = function(e){
 					ui.$move.text(ui.moveCount0);
 					$html.unbind('blur');
 				});
-				$('.item-split .btn-up').bind('mousedown',function(e){
+				$('.item-split .btn-up').bind('mousedown touchstart',function(e){
 					ui.stopProp(e);
 					ui.splitItem(0,$('.item-split .item'),ui.$beginContainer.find('.item'));
 				});
-				$('.item-split .btn-down').bind('mousedown',function(e){
+				$('.item-split .btn-down').bind('mousedown touchstart',function(e){
 					ui.stopProp(e);
 					ui.splitItem(1,$('.item-split .item'),ui.$beginContainer.find('.item'));
 				});
 				//滑竿
-				$('.drag-scorll-line span i').bind('mousedown',ui.e.SplitZoom);
-				$('.item-split .btn-done').bind('mousedown',ui.e.SplitDone);
+				$('.drag-scorll-line span i').bind('mousedown touchstart',ui.e.SplitZoom);
+				$('.item-split .btn-done').bind('mousedown touchstart',ui.e.SplitDone);
 			}else{
 				ui.$move.css({
 					'position':'absolute',
@@ -160,8 +172,8 @@ ui.e.DragStart = function(e){
 				});
 				$(this).appendTo('body');
 				//鼠标松开左右键换装备
-				$(document).bind('mouseup',ui.e.EquipItem);
-				$(document).bind('mousemove',ui.e.DragFollow);
+				$(document).bind('mouseup touchend',ui.e.EquipItem);
+				$(document).bind('mousemove touchmove',ui.e.DragFollow);
 			}
 		}
 	}
@@ -171,11 +183,11 @@ ui.e.SplitDone = function(e){
 		console.log(6)
 		ui.stopProp(e);
 		$html.unbind('blur');
-		$(document).bind('mouseup',ui.e.SplitMove);
-		$(document).unbind('mouseup',ui.e.EquipItem);
-		$('.drag-scorll-line span i').unbind('mousedown',ui.e.SplitZoom);
-		$(document).unbind('mousemove',ui.e.SplitZooming)
-		$('.item-split .btn-done').unbind('mousedown',ui.e.SplitDone);
+		$(document).bind('mouseup touchend',ui.e.SplitMove);
+		$(document).unbind('mouseup touchend',ui.e.EquipItem);
+		$('.drag-scorll-line span i').unbind('mousedown touchstart',ui.e.SplitZoom);
+		$(document).unbind('mousemove touchmove',ui.e.SplitZooming)
+		$('.item-split .btn-done').unbind('mousedown touchstart',ui.e.SplitDone);
 	}
 	
 
@@ -196,10 +208,10 @@ ui.e.SplitMove = function(e){
 			});
 			ui.$move.appendTo('body');
 			$html.remove();
-			$(document).bind('mousemove',ui.e.SplitFollow);
-			$(document).bind('click',ui.e.SplitHide);
+			$(document).bind('mousemove touchmove',ui.e.SplitFollow);
+			$(document).bind('mouseup touchend',ui.e.SplitHide);
 		}
-		$(document).unbind('mouseup',ui.e.SplitMove);
+		$(document).unbind('mouseup touchend',ui.e.SplitMove);
 	}
 	
 	
@@ -222,9 +234,9 @@ ui.e.SplitHide = function(e){
 		console.log(9)
 		ui.droped = 1;
 		ui.$move.hide();
-		$(document).bind('mouseover',ui.e.SplitToBack);
-		$('.isbag').bind('mouseover',ui.e.SplitToBag);
-		$(document).unbind('click',ui.e.SplitHide);
+		$(document).bind('mouseover touchstart',ui.e.SplitToBack);
+		$('.isbag').bind('mouseover touchstart',ui.e.SplitToBag);
+		$(document).unbind('mouseup touchend',ui.e.SplitHide);
 	}
 
 
@@ -234,8 +246,8 @@ ui.e.SplitToBack = function(e){
 		ui.$beginContainer.find('.candrag').text(ui.moveCount0);
 		ui.$move.remove();
 		$('.isbag').removeAttr('style');
-		$('.isbag').unbind('mouseover',ui.e.SplitToBag);
-		$(document).unbind('mouseover',ui.e.SplitToBack);
+		$('.isbag').unbind('mouseover touchstart',ui.e.SplitToBag);
+		$(document).unbind('mouseover touchstart',ui.e.SplitToBack);
 	}
 	
 	
@@ -268,8 +280,8 @@ ui.e.SplitToBag = function(e){
 				ui.$move.remove();
 			}
 			$('.isbag').removeAttr('style');
-			$(document).unbind('mouseover',ui.e.SplitToBack);
-			$('.isbag').unbind('mouseover',ui.e.SplitToBag);
+			$(document).unbind('mouseover touchstart',ui.e.SplitToBack);
+			$('.isbag').unbind('mouseover touchstart',ui.e.SplitToBag);
 		}
 	}
 	
@@ -279,7 +291,7 @@ ui.e.SplitZoom = function(e){
 		ui.stopProp(e);
 		ui.e.SplitZoom.x0 = e.pageX;
 		ui.e.SplitZoom.w0 = $(this).parent('span').width();
-		$(document).bind('mousemove',ui.e.SplitZooming)
+		$(document).bind('mousemove touchmove',ui.e.SplitZooming)
 	}
 	
 ui.e.SplitZooming = function(e){

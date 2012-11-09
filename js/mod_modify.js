@@ -44,21 +44,20 @@ var mod_modify = {
 	init:function(){
 		document.oncontextmenu=function(e){return false;} 
 		
-		$(document).bind('mousedown',function(e){
+		$(document).bind('mousedown touchstart',function(e){
 			mod_modify.mr(e) ? mod_modify.mouseRight(1) : mod_modify.mouseLeft(1);
 		})
 		
 		//拖拽结束
-		$(document).bind('mouseup',function(e){
+		$(document).bind('mouseup touchend',function(e){
 			mod_modify.mr(e) ? mod_modify.mouseRight(0) : mod_modify.mouseLeft(0);
-			$(document).unbind('mousemove');
+			$(document).unbind('mousemove touchmove');
 			mod_modify.mousePos();
 			mod_modify.getModInfo(mod_modify.$current);
 		});
 		
 		//拖拽开始
-		$('.base div').bind({
-			mousedown:function(e){
+		$('.base div').bind('mousedown touchstart',function(e){
 				e.preventDefault();
 				e.stopPropagation();
 				if(mod_modify.mr(e)){
@@ -78,12 +77,12 @@ var mod_modify = {
 					mod_modify.pageX0 = e.pageX;
 					mod_modify.pageY0 = e.pageY;
 					//拖拽过程
-					$(document).bind('mousemove',function(e){	
+					$(document).bind('mousemove touchmove',function(e){	
 						mod_modify.modMove(e);
 					});
 				}
 			}
-		});
+		);
 		
 		//鼠标控制移动
 		$(document).bind('keydown',function(e){
@@ -322,7 +321,7 @@ var mod_modify = {
 		$('#tex_list dd').html(list);
 	},
 	mousePos:function(){
-		$(document).bind('mousemove',function(e){
+		$(document).bind('mousemove touchmove',function(e){
 			mod_modify.pageX = e.pageX;
 			mod_modify.pageY = e.pageY;
 			$('#proto2 dd').text(mod_modify.pageX);
@@ -381,8 +380,7 @@ var mod_modify = {
 		var o = obj;
 		var t;
 		target ? t = target : t = o;
-		o.bind({
-			mousedown:function(e){
+		o.bind('mousedown touchstart',function(e){
 				e.preventDefault();
 				e.stopPropagation();
 				mod_modify.mouseLeft(1);
@@ -393,11 +391,11 @@ var mod_modify = {
 				mod_modify.moveY0 = e.pageY;
 				mod_modify.moveLeft = t.position().left;
 				mod_modify.moveTop = t.position().top;
-				$(document).bind('mousemove',function(e){	
+				$(document).bind('mousemove touchmove',function(e){	
 					mod_modify.uiMove(e);
 				});
 			}
-		});
+		);
 	}
 }
 

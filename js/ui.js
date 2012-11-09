@@ -31,6 +31,8 @@ var ui = {
 	moveTop:null,
 	droped:0,
 	moveCount0:0,
+	dbclk:0,
+	dbclkT:null,
 	e:function(e){
 		
 	},
@@ -48,7 +50,7 @@ var ui = {
 		var o = obj;
 		var t;
 		target ? t = target : t = null;
-		o.bind('mousedown',ui.e.DragStart);
+		o.bind('mousedown touchstart',ui.e.DragStart);
 	
 	},
 	//拖动中
@@ -75,7 +77,7 @@ var ui = {
 			$('.candrop').removeAttr('style')
 			if(obj) o = obj;
 			if(source) s = source;
-			$(document).unbind('mousemove');
+			$(document).unbind('mousemove touchmove');
 			if(ui._mouseLeft == 1){
 				o.appendTo(s);
 				o.removeAttr('style');

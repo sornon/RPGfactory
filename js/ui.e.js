@@ -78,7 +78,7 @@ ui.e.EquipItemEnd = function(e){
 						ui.$move.remove();
 					}
 				}else{
-					if($(this).hasClass(ui.$move.attr('socket'))){
+					if($(this).hasClass(ui.$move.attr('socket')) || ($(this).hasClass('isbag')&&ui.$beginContainer.hasClass('isbag'))){
 					console.log(3.6)
 					//槽位已有装备放入背包
 					t.appendTo(ui.$beginContainer);

@@ -78,12 +78,13 @@ ui.e.EquipItemEnd = function(e){
 						ui.$move.remove();
 					}
 				}else{
-					
+					if($(this).hasClass(ui.$move.attr('socket'))){
 					console.log(3.6)
 					//槽位已有装备放入背包
 					t.appendTo(ui.$beginContainer);
 					//拖拽物放入装备槽位
 					ui.$move.appendTo($(this));
+					}
 				}
 			
 			}else{

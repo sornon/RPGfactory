@@ -5,6 +5,7 @@
     -webkit-transform-style: preserve-3d;
 }
 @-webkit-keyframes attack1-weapon{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	45%{-webkit-transform:rotate(-40deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -15,6 +16,7 @@
 	left:-17px;top:5px;
 }
 @-webkit-keyframes attack1-arm-r{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-webkit-transform:rotate(160deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:0px;top:5px;}
 	45%{-webkit-transform:rotate(-70deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-30px;top:10px;}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -25,6 +27,7 @@
 	left:10px;top:-7px;
 }
 @-webkit-keyframes attack1-arm-l{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-webkit-transform:rotate(60deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:0px;top:0px;}
 	45%{-webkit-transform:rotate(-20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-15px;top:-10px;}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -35,6 +38,7 @@
 	left:2px;top:-4px;
 }
 @-webkit-keyframes attack1-head{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-webkit-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:2px;top:-4px;}
 	45%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-22px;top:10px;}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -55,6 +59,7 @@
     -webkit-transform-style: preserve-3d;
 }
 @-webkit-keyframes attack1-body{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-webkit-transform:rotate(5deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	45%{-webkit-transform:rotate(-40deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -75,6 +80,7 @@
     -webkit-transform-style: preserve-3d;
 }
 @-webkit-keyframes attack1-hair{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	45%{-webkit-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	60%{-webkit-transform:rotate(-10deg) scale(1.00,1.00) translate(0px,0px) skew(30deg,-30deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}

@@ -42,7 +42,7 @@ body .current{ z-index:105}
 .bone-arm-r{left:-17px;top:7px; z-index:100}
 .bone-arm-r-2{left:-16px;top:14px; z-index:100}
 .bone-hand-r{left:-9px; top:8px; z-index:100}
-.bone-weapon{left:-32px;top:27px; z-index:100}
+.bone-weapon{left:-8px;top:1px; z-index:100}
 .bone-body{left:0px;top:37px; z-index:100}
 .bone-foot-l{left:18px;top:41px; z-index:100}
 .bone-foot-r{left:-9px;top:37px; z-index:100}

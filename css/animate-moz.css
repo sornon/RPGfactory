@@ -1,11 +1,22 @@
 /* 动画 */
 /* 攻击1 */
+.attack1 .bone-weapon{
+	-moz-animation:attack1-weapon 1.5s infinite ease-in-out;
+    -moz-transform-style: preserve-3d;
+}
+@-moz-keyframes attack1-weapon{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	35%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	45%{-moz-transform:rotate(-40deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
 .attack1 .bone-arm-r{
 	-moz-animation:attack1-arm-r 1.5s infinite ease-in-out;
     -moz-transform-style: preserve-3d;
 	left:-17px;top:5px;
 }
 @-moz-keyframes attack1-arm-r{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-moz-transform:rotate(160deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:0px;top:5px;}
 	45%{-moz-transform:rotate(-70deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-30px;top:10px;}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -16,6 +27,7 @@
 	left:10px;top:-7px;
 }
 @-moz-keyframes attack1-arm-l{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-moz-transform:rotate(60deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:0px;top:0px;}
 	45%{-moz-transform:rotate(-20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-15px;top:-10px;}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -26,6 +38,7 @@
 	left:2px;top:-4px;
 }
 @-moz-keyframes attack1-head{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-moz-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:2px;top:-4px;}
 	45%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-22px;top:10px;}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -36,32 +49,40 @@
 	background:url(../images/character/face/01-3.png) no-repeat;
 }
 @-moz-keyframes attack1-face01{
-	0%{ background:url(../images/character/face/01-1.png) no-repeat;}
-	1%{background:url(../images/character/face/01-3.png) no-repeat;}
-	70%{background:url(../images/character/face/01-3.png) no-repeat;}
-	71%{ background:url(../images/character/face/01-1.png) no-repeat;}
+	0%{ background:url(../images/character/face/01-3.png) no-repeat;}
+	100%{background:url(../images/character/face/01-3.png) no-repeat;}
 }
 .attack1 .bone-body{
 	-moz-animation:attack1-body 1.5s infinite ease-in-out;
     -moz-transform-style: preserve-3d;
 }
 @-moz-keyframes attack1-body{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	35%{-moz-transform:rotate(5deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	45%{-moz-transform:rotate(-40deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.attack1 .bone-foot-l{
-	-moz-animation:attack1-foot-l 1.5s infinite ease-in-out;
+.attack1 .bone-leg-l{
+	-moz-animation:attack1-leg-l 1.5s infinite ease-in-out;
     -moz-transform-style: preserve-3d;
 	left:13px;top:39px;
 }
-@-moz-keyframes attack1-foot-l{
-	0%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
-	35%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
-	45%{-moz-transform:rotate(-60deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:6px;top:39px;}
-	100%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
+@-moz-keyframes attack1-leg-l{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
+	35%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
+	45%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:7px;top:32px;}
+	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
 }
-
+.attack1 .bone-hair{
+	-moz-animation:attack1-hair 1.5s infinite ease-out;
+    -moz-transform-style: preserve-3d;
+}
+@-moz-keyframes attack1-hair{
+	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	45%{-moz-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	60%{-moz-transform:rotate(-10deg) scale(1.00,1.00) translate(0px,0px) skew(30deg,-30deg);}
+	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
 
 
 
@@ -92,15 +113,6 @@
 	10%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	60%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-}
-.stand1 .bone-foot-l{
-	-moz-animation:stand1-foot-l 1.5s infinite ease-in-out;
-    -moz-transform-style: preserve-3d;
-	left:13px;top:39px;
-}
-@-moz-keyframes stand1-foot-l{
-	0%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
-	100%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
 }
 .stand1 .bone-hair{
 	-moz-animation:stand1-hair 1.5s infinite ease-in-out;
@@ -158,23 +170,32 @@
 	50%{-moz-transform:rotate(30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-moz-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.walk1 .bone-foot-l{
-	-moz-animation:walk1-foot-l 0.5s infinite ease-in-out;
+.walk1 .bone-leg-l{
+	-moz-animation:walk1-leg-l 0.5s infinite ease-in-out;
     -moz-transform-style: preserve-3d;
-	left:3px;top:29px;
+	left:3px;top:23px;
 }
-@-moz-keyframes walk1-foot-l{
-	0%{-moz-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	50%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-9px;top:37px;}
-	100%{-moz-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+@-moz-keyframes walk1-leg-l{
+	0%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	50%{-moz-transform:rotate(50deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-9px;top:31px;}
+	100%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.walk1 .bone-foot-r{
-	-moz-animation:walk1-foot-r 0.5s infinite ease-in-out;
+.walk1 .bone-leg-r{
+	-moz-animation:walk1-leg-r 0.5s infinite ease-in-out;
     -moz-transform-style: preserve-3d;
-	left:-9px;top:37px;
+	left:-9px;top:31px;
 }
-@-moz-keyframes walk1-foot-r{
+@-moz-keyframes walk1-leg-r{
 	0%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	50%{-moz-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:3px;top:29px;}
+	50%{-moz-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:3px;top:23px;}
 	100%{-moz-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
+.walk1 .bone-hair{
+	-moz-animation:walk1-hair 0.3s infinite ease-in-out;
+    -moz-transform-style: preserve-3d;
+}
+@-moz-keyframes walk1-hair{
+	0%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	50%{-moz-transform:rotate(-35deg) scale(1.00,1.00) translate(0px,0px) skew(3deg,2deg);}
+	100%{-moz-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }

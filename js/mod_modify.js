@@ -218,10 +218,12 @@ var mod_modify = {
             mod_modify.eye($(this))
         });
 		
-		$('#animate_list select').change(function(){
+		$('#animate_list select').click(function(){
 			var a = $(this).val();
-			if(mod_modify.$current && mod_modify.$current.closest('.unit').size()>0){
-				mod_modify.$current.closest('.unit').removeClass().addClass('unit '+a);
+			if(mod_modify.$current && mod_modify.$current.closest('.base').size()>0){
+				mod_modify.$current.closest('.base').find('.unit').removeClass().addClass('unit '+a);
+			}else if(mod_modify.$current.hasClass('base')){
+				mod_modify.$current.find('.unit').removeClass().addClass('unit '+a);
 			}else{
 				alert('You must select an unit!')
 			}
@@ -231,14 +233,14 @@ var mod_modify = {
 		//生成nodelist
 		mod_modify.boneList($('.base'));
 		//节点选择事件
-		$('#bone_list').delegate($('select'),'change',function(){
+		$('#bone_list').delegate($('select'),'click',function(){
 			var a = $('#bone_list select').val();
 			if(a!=''&&a!='document'){
 				$('.'+a).mousedown().mouseup();
 				mod_modify.texList(a);
 			}
 		})
-		$('#tex_list').delegate($('select'),'change',function(){
+		$('#tex_list').delegate($('select'),'click',function(){
 			var a = $('#tex_list select').val();
 			if(a!=''&&a!='document'){
 				$('.'+a).mousedown().mouseup();

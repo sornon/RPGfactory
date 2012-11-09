@@ -64,16 +64,16 @@
 	45%{-webkit-transform:rotate(-40deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.attack1 .bone-foot-l{
-	-webkit-animation:attack1-foot-l 1.5s infinite ease-in-out;
+.attack1 .bone-leg-l{
+	-webkit-animation:attack1-leg-l 1.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
 	left:13px;top:39px;
 }
-@-webkit-keyframes attack1-foot-l{
-	0%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
-	35%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
-	45%{-webkit-transform:rotate(-60deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:6px;top:39px;}
-	100%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:13px;top:39px;}
+@-webkit-keyframes attack1-leg-l{
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
+	35%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
+	45%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:7px;top:32px;}
+	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:14px;top:32px;}
 }
 .attack1 .bone-hair{
 	-webkit-animation:attack1-hair 1.5s infinite ease-out;
@@ -115,15 +115,6 @@
 	10%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	60%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-}
-.stand1 .bone-foot-l{
-	-webkit-animation:stand1-foot-l 1.5s infinite ease-in-out;
-    -webkit-transform-style: preserve-3d;
-	left:13px;top:39px;
-}
-@-webkit-keyframes stand1-foot-l{
-	0%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	100%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
 .stand1 .bone-hair{
 	-webkit-animation:stand1-hair 1.5s infinite ease-in-out;
@@ -181,24 +172,24 @@
 	50%{-webkit-transform:rotate(30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.walk1 .bone-foot-l{
-	-webkit-animation:walk1-foot-l 0.5s infinite ease-in-out;
+.walk1 .bone-leg-l{
+	-webkit-animation:walk1-leg-l 0.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
-	left:3px;top:29px;
+	left:3px;top:23px;
 }
-@-webkit-keyframes walk1-foot-l{
-	0%{-webkit-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	50%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-9px;top:37px;}
-	100%{-webkit-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+@-webkit-keyframes walk1-leg-l{
+	0%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	50%{-webkit-transform:rotate(50deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-9px;top:31px;}
+	100%{-webkit-transform:rotate(-30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.walk1 .bone-foot-r{
-	-webkit-animation:walk1-foot-r 0.5s infinite ease-in-out;
+.walk1 .bone-leg-r{
+	-webkit-animation:walk1-leg-r 0.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
-	left:-9px;top:37px;
+	left:-9px;top:31px;
 }
-@-webkit-keyframes walk1-foot-r{
+@-webkit-keyframes walk1-leg-r{
 	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	50%{-webkit-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:3px;top:29px;}
+	50%{-webkit-transform:rotate(-80deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:3px;top:23px;}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
 .walk1 .bone-hair{

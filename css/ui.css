@@ -33,7 +33,7 @@ input { -moz-user-select:all; -webkit-user-select:auto; user-select: auto; }
 /* 背包 */
 .char-bag{background: #eee; width: 280px; height:320px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
 .char-bag li{ float:left; width:60px; height:60px; background:#fff; margin:8px 8px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset}
-.char-equ{background: #eee; width: 250px; height:270px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
+.char-equ{background: #eee; width: 250px; height:556px; padding:10px 0 0 15px; border-bottom: 1px solid #ddd; border-top: 1px solid #fff;}
 .char-equ dl { width:120px; height:60px; float:left;margin:10px 0px 0 0;}
 .char-equ dt { float: left; width: 30px; height:60px; line-height:60px; text-align: right; padding:0 10px 0 0 }
 .char-equ dd { float: left; width:60px; height:60px; background:#fff; margin:5px 5px 0 0; box-shadow:0px 0px 8px rgba(0,0,0,0.3) inset;}

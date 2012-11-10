@@ -27,6 +27,7 @@ ui.e.EquipItem = function(e){
 ui.e.Droped = function(e){
 		console.log(2)
 		//是否丢弃
+		ui.refreshChar();
 		ui.droped = 0;
 		$(document).unbind('mouseover touchstart',ui.e.Droped);
 		$('.candrop').unbind('mouseover touchstart',ui.e.EquipItemEnd);
@@ -59,6 +60,7 @@ ui.e.EquipItemEnd = function(e){
 					t.appendTo(ui.$beginContainer);
 					//拖拽物放入装备槽位
 					ui.$move.appendTo($(this));
+					ui.refreshChar();
 				}else if(ui.$move.attr('class') == t.attr('class') && mx > mc){
 					console.log(3.3)
 					if(tmc>mx){
@@ -84,6 +86,7 @@ ui.e.EquipItemEnd = function(e){
 					t.appendTo(ui.$beginContainer);
 					//拖拽物放入装备槽位
 					ui.$move.appendTo($(this));
+					ui.refreshChar();
 					}
 				}
 			
@@ -91,8 +94,9 @@ ui.e.EquipItemEnd = function(e){
 				console.log(3.7)
 				//当前槽位是否匹配
 				if($(this).hasClass(ui.$move.attr('socket')) || $(this).hasClass('isbag')){
-				console.log(3.8)
+					console.log(3.8)
 					ui.$move.appendTo($(this));
+					ui.refreshChar();
 				}
 			}
 			//清空当前对象

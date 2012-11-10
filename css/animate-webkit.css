@@ -107,11 +107,31 @@
 	50%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-2px,3px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.stand1 .bone-arm-r,.stand1 .bone-arm-l{
-	-webkit-animation:stand1-arm 1.5s infinite ease-in-out;
+.stand1 .bone-arm-l{
+	-webkit-animation:stand1-arm-l 1.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
 }
-@-webkit-keyframes stand1-arm{
+@-webkit-keyframes stand1-arm-l{
+	10%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	60%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
+	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
+.stand1 .bone-arm-r{
+	-webkit-animation:stand1-arm-r 1.5s infinite ease-in-out;
+    -webkit-transform-style: preserve-3d;
+	left:-17px;top:1px; z-index:100;
+}
+@-webkit-keyframes stand1-arm-r{
+	10%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	60%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
+	100%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
+.sword .stand1 .bone-arm-r{
+	-webkit-animation:sword-stand1-arm-r 1.5s infinite ease-in-out;
+    -webkit-transform-style: preserve-3d;
+	left:-17px;top:7px;
+}
+@-webkit-keyframes sword-stand1-arm-r{
 	10%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	60%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
@@ -162,15 +182,33 @@
 	50%{-webkit-transform:rotate(-25deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(-45deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
-.walk1 .bone-arm-r{
-	-webkit-animation:walk1-arm-r 0.5s infinite ease-in-out;
+.sword .walk1 .bone-arm-r{
+	-webkit-animation:sword-walk1-arm-r 0.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
 	left:-40px;top:13px;
 }
-@-webkit-keyframes walk1-arm-r{
+.sword .walk1 .bone-arm-r-2{
+	-webkit-transform:rotate(0deg);
+	left:-16px;top:14px;
+}
+@-webkit-keyframes sword-walk1-arm-r{
 	0%{-webkit-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	50%{-webkit-transform:rotate(30deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 	100%{-webkit-transform:rotate(20deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+}
+.walk1 .bone-arm-r{
+	-webkit-animation:walk1-arm-r 0.5s infinite ease-in-out;
+    -webkit-transform-style: preserve-3d;
+	left:-30px;top:13px;
+}
+.walk1 .bone-arm-r-2{
+	-webkit-transform:rotate(110deg);
+	left:-16px;top:4px;
+}
+@-webkit-keyframes walk1-arm-r{
+	0%{-webkit-transform:rotate(-86deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	50%{-webkit-transform:rotate(-126deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	100%{-webkit-transform:rotate(-86deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
 }
 .walk1 .bone-leg-l{
 	-webkit-animation:walk1-leg-l 0.5s infinite ease-in-out;

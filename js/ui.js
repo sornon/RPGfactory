@@ -90,7 +90,7 @@ var ui = {
 			console.log(1004)
 			if(ui.$move.closest('.char-equ').size()>0){
 				$('.candrop').removeAttr('style');
-				ui.$move.appendTo(ui.spaceBag())
+				ui.$move.appendTo(ui.spaceBag());
 			}else{
 				$('.'+ui.$move.attr('socket')).first().find('span').appendTo(ui.$beginContainer);
 				ui.$move.appendTo($('.'+ui.$move.attr('socket')).first());
@@ -149,11 +149,43 @@ var ui = {
 
 }
 
+ui.refreshChar = function(char,obj){
+	console.log('刷新显示装备1')
+	var a = $('.base');
+	var o = $('.char-equ').find('.candrop');
+	var b;
+	if(char){
+		a = char;
+	}
+	if(obj){
+		o = obj;
+	}
+	o.each(function(){
+		b = $(this).find('.candrag');
+        ui.socketFind(b.attr('socket'),b.attr('id'),a);
+		if(b.attr('type')){
+			a.addClass(b.attr('type'));
+		}
+		if( b.size() == 0 ){
+			$('[tex='+$(this).attr('socket')+']').removeAttr('class').addClass('none');
+			if($(this).attr('socket') == 'ismainhand'){
+				a.removeClass('sword');
+			}
+		}
+    });
+}
+
+ui.socketFind = function(socket,id,obj){
+	console.log('刷新显示装备2')
+	$('[tex='+socket+']').removeAttr('class').addClass('i'+id);
+	
+}
 
 $(function(){
 	ui.init();
 	$('.candrag').each(function() {
         ui.drag($(this));
     });
+	ui.refreshChar();
 
 })

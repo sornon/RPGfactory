@@ -119,13 +119,13 @@
 .stand1 .bone-arm-r{
 	-webkit-animation:stand1-arm-r 1.5s infinite ease-in-out;
     -webkit-transform-style: preserve-3d;
-	left:-17px;top:1px; z-index:100;
+	left:-17px;top:1px;
 }
 @-webkit-keyframes stand1-arm-r{
-	0%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	10%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	60%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
-	100%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	0%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:1px;}
+	10%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:1px;}
+	60%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);left:-17px;top:1px;}
+	100%{-webkit-transform:rotate(-26deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:1px;}
 }
 .sword .stand1 .bone-arm-r{
 	-webkit-animation:sword-stand1-arm-r 1.5s infinite ease-in-out;
@@ -133,10 +133,10 @@
 	left:-17px;top:7px;
 }
 @-webkit-keyframes sword-stand1-arm-r{
-	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	10%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
-	60%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);}
-	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);}
+	0%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:7px;}
+	10%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:7px;}
+	60%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(-3px,5px) skew(0deg,0deg);left:-17px;top:7px;}
+	100%{-webkit-transform:rotate(0deg) scale(1.00,1.00) translate(0px,0px) skew(0deg,0deg);left:-17px;top:7px;}
 }
 .stand1 .bone-hair{
 	-webkit-animation:stand1-hair 1.5s infinite ease-in-out;

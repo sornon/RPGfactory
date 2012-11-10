@@ -153,7 +153,7 @@ ui.refreshChar = function(char,obj){
 	console.log('刷新显示装备1')
 	var a = $('.base');
 	var o = $('.char-equ').find('.candrop');
-	var b;
+	var b,c;
 	if(char){
 		a = char;
 	}
@@ -165,11 +165,18 @@ ui.refreshChar = function(char,obj){
         ui.socketFind(b.attr('socket'),b.attr('id'),a);
 		if(b.attr('type')){
 			a.addClass(b.attr('type'));
+			c = a.find('.unit').attr('class');
+			a.find('.unit').removeClass().addClass('unit');
+			setTimeout(function(){a.find('.unit').addClass(c);},0)
 		}
 		if( b.size() == 0 ){
 			$('[tex='+$(this).attr('socket')+']').removeAttr('class').addClass('none');
 			if($(this).attr('socket') == 'ismainhand'){
 				a.removeClass('sword');
+				c = a.find('.unit').attr('class');
+				a.find('.unit').removeClass().addClass('unit');
+				setTimeout(function(){a.find('.unit').addClass(c);},0)
+				
 			}
 		}
     });

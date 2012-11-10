@@ -5,6 +5,7 @@
 <link href="css/reset.css" rel="stylesheet" type="text/css" />
 <link href="css/ui.css" rel="stylesheet" type="text/css" />
 <link href="css/character.css" rel="stylesheet" type="text/css" />
+<link href="css/item.css" rel="stylesheet" type="text/css" />
 <link href="css/animate-moz.css" rel="stylesheet" type="text/css" />
 <link href="css/animate-webkit.css" rel="stylesheet" type="text/css" />
 </head>
@@ -13,26 +14,26 @@
     <canvas class="stage-back"></canvas>
     <div class="base" style="left:320px; top:300px;">
         <div class="shadow"></div>
-        <div class="unit">
+        <div class="unit sword">
             <div class="bone-leg-r">
                 <div class="bone-foot-r">
-                    <div class="foot-r01"></div>
+                    <div class="foot-r01-none"></div>
                 </div>
-                <div class="leg-r01"></div>
+                <div class="leg-r01-none"></div>
             </div>
             <div class="bone-leg-l">
                 <div class="bone-foot-l">
-                    <div class="foot-l01"></div>
+                    <div class="foot-l01-none"></div>
                 </div>
-                <div class="leg-l01"></div>
+                <div class="leg-l01-none"></div>
             </div>
             <div class="bone-body">
-                <div class="body01"></div>
+                <div class="body01-none"></div>
             </div>
             <div class="bone-arm-r">
                 <div class="bone-arm-r-2">
-                	<div class="arm-r01-2"></div>
-                	<div class="wrister-r01"></div>
+                	<div class="arm-r01-2-none"></div>
+                	<div class="wrister-r-none"></div>
                     <div class="bone-hand-r">
                         <div class="bone-weapon">
                             <div class="w01"></div>
@@ -40,8 +41,8 @@
                 		<div class="hand-r01"></div>
                     </div>
                 </div>
-                <div class="arm-r01-1"></div>
-                <div class="shoulder-r01"></div>
+                <div class="arm-r01-1-none"></div>
+                <div class="shoulder-r-none"></div>
             </div>
             <div class="bone-head">
                 <div class="bone-hair">
@@ -54,14 +55,14 @@
             </div>
             <div class="bone-arm-l">
                 <div class="bone-arm-l-2">
-                	<div class="arm-l01-2"></div>
+                	<div class="arm-l01-2-none"></div>
                     <div class="bone-hand-l">
                 		<div class="hand-l01"></div>
                     </div>
-                	<div class="wrister-l01"></div>
+                	<div class="wrister-l-none"></div>
                 </div>
-                <div class="arm-l01-1"></div>
-                <div class="shoulder-l01"></div>
+                <div class="arm-l01-1-none"></div>
+                <div class="shoulder-l-none"></div>
             </div>
             <div class="link"></div>
         </div>
@@ -70,47 +71,6 @@
     
 </div>
 
-<!-- 背包 -->
-<div class="control-panel" style="right:30px; left:auto">
-	<div class="box-handle"></div>
-    <div class="char-bag">
-    	<h5 class="mb-10">Item bag</h5>
-    	<ul>
-        	<li class="candrop isbag"><span socket="isbody" class="candrag item iwa001"></span></li>
-        	<li class="candrop isbag"><span socket="isbody" class="candrag item iwa001"></span></li>
-        	<li class="candrop isbag"><span socket="isweapon" class="candrag item iwa003"></span></li>
-        	<li class="candrop isbag"><span max="20" class="candrag item iwa004">8</span></li>
-        	<li class="candrop isbag"><span max="20" class="candrag item iwa004">17</span></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        	<li class="candrop isbag"></li>
-        </ul>
-    </div>
-</div>
-<!-- /背包 -->
-
-<!-- 装备 -->
-<div class="control-panel" style="right:340px; left:auto">
-	<div class="box-handle"></div>
-    <div class="char-equ">
-    	<h5 class="mb-10">Character equipped</h5>
-		<dl><dt>身体</dt><dd class="candrop isbody"><span socket="isbody" class="candrag item iwa002"></span></dd></dl>
-		<dl><dt>肩部</dt><dd class="candrop isshoulder"></dd></dl>
-		<dl><dt>腕部</dt><dd class="candrop iswrist"></dd></dl>
-		<dl><dt>武器</dt><dd class="candrop isweapon"></dd></dl>
-		<dl><dt>腿部</dt><dd class="candrop isleg"></dd></dl>
-		<dl><dt>脚部</dt><dd class="candrop isfoot"></dd></dl>
-    </div>
-</div>
-<!-- /装备 -->
 
 <!-- 模型数据信息 -->
 <div class="control-panel">
@@ -173,6 +133,50 @@
     </div>
 </div>
 <!-- /模型数据信息 -->
+
+
+<!-- 背包 -->
+<div class="control-panel" style="right:30px; left:auto">
+	<div class="box-handle"></div>
+    <div class="char-bag">
+    	<h5 class="mb-10">Item bag</h5>
+    	<ul>
+        	<li class="candrop isbag"><span socket="isbody" class="candrag item iwa001"></span></li>
+        	<li class="candrop isbag"><span socket="isbody" class="candrag item iwa002"></span></li>
+        	<li class="candrop isbag"><span socket="isweapon" class="candrag item iwa003"></span></li>
+        	<li class="candrop isbag"><span max="20" class="candrag item iwa004">8</span></li>
+        	<li class="candrop isbag"><span max="20" class="candrag item iwa004">17</span></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        	<li class="candrop isbag"></li>
+        </ul>
+    </div>
+</div>
+<!-- /背包 -->
+
+<!-- 装备 -->
+<div class="control-panel" style="right:340px; left:auto">
+	<div class="box-handle"></div>
+    <div class="char-equ">
+    	<h5 class="mb-10">Character equipped</h5>
+		<dl><dt>身体</dt><dd class="candrop isbody"></dd></dl>
+		<dl><dt>肩部</dt><dd class="candrop isshoulder"></dd></dl>
+		<dl><dt>腕部</dt><dd class="candrop iswrist"></dd></dl>
+		<dl><dt>武器</dt><dd class="candrop isweapon"></dd></dl>
+		<dl><dt>腿部</dt><dd class="candrop isleg"></dd></dl>
+		<dl><dt>脚部</dt><dd class="candrop isfoot"></dd></dl>
+    </div>
+</div>
+<!-- /装备 -->
+
 
 </body>
 <script src="js/jquery.js" type="text/javascript"></script>

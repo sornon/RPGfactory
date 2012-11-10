@@ -1,6 +1,6 @@
 /* 模型基础样式 */
 .base{ position:absolute; width:0; height:0;}
-.base div{ position:absolute; cursor:move}
+.base *{ position:absolute; cursor:move; display:block;}
 
 .shadow{ width:80px; height:21px; background:url(../images/shadow/01.png) no-repeat; left:-40px; top:-10px; z-index:100}
 .unit{ left:-2px; top:-56px; z-index:100; width:0; height:0;}
@@ -10,31 +10,8 @@ body .base .link:hover,body .base .link:active,body .current > .link{ width:8px;
 body .current{}
 
 
-/* 装备基础样式 */
-.shoulder-l01{z-index:100;background:url(../images/character/shoulderleft/01.png) no-repeat; width:49px; height:69px;left:-6px;top:-10px;}
-.arm-l01-1{ z-index:100;background:url(../images/character/armleft/01-1.png) no-repeat; width:34px; height:49px;left:-6px;top:-10px;}
-.arm-l01-2{ z-index:100;background:url(../images/character/armleft/01-2.png) no-repeat; width:18px; height:24px;left:-8px;top:-6px;}
-.hand-l01{ z-index:100;background:url(../images/character/handleft/01.png) no-repeat; width:37px; height:40px;left:-17px;top:-23px;}
-.wrister-l01{ z-index:100;background:url(../images/character/wristerleft/01.png) no-repeat; width:49px; height:36px;left:-26px;top:-7px;}
-.face01-1{ z-index:100;background:url(../images/character/face/01-1.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
-.face01-2{ z-index:100;background:url(../images/character/face/01-2.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
-.head01{ z-index:100;background:url(../images/character/head/01.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
-.head02{ z-index:100;background:url(../images/character/head/02.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
-.hair01{ z-index:100;background:url(../images/character/hair/01.png) no-repeat; width:59px; height:47px;left:-4px;top:-24px;}
-.body01{ z-index:100;background:url(../images/character/body/01.png) no-repeat; width:36px; height:47px;left:-17px;top:-40px;}
-.shoulder-r01{ z-index:100;background:url(../images/character/shoulderright/01.png) no-repeat; width:46px; height:43px;left:-27px;top:-6px;}
-.arm-r01-1{ z-index:100;background:url(../images/character/armright/01-1.png) no-repeat; width:46px; height:43px;left:-25px;top:-7px;}
-.arm-r01-2{ z-index:100;background:url(../images/character/armright/01-2.png) no-repeat; width:46px; height:43px;left:-15px;top:-7px;}
-.hand-r01 { z-index:100;background:url(../images/character/handright/01.png) no-repeat; width:18px; height:19px;left:-15px;top:-7px;}
-.wrister-r01{ z-index:100;background:url(../images/character/wristerright/01.png) no-repeat; width:23px; height:20px;left:-17px;top:-6px;}
-.w01{ z-index:100;background:url(../images/weapon/01.png) no-repeat; width:43px; height:111px;left:-30px;top:-89px;}
-.leg-l01{ z-index:100;background:url(../images/character/legleft/01.png) no-repeat; width:24px; height:29px;left:-8px;top:-2px;}
-.foot-l01{ z-index:100;background:url(../images/character/footleft/01.png) no-repeat; width:24px; height:29px;left:-15px;top:-16px;}
-.leg-r01{ z-index:100;background:url(../images/character/legright/01.png) no-repeat; width:26px; height:28px;left:-23px;top:-2px;}
-.foot-r01{ z-index:100;background:url(../images/character/footright/01.png) no-repeat; width:26px; height:28px;left:-18px;top:-18px;}
 
-
-/* 骨骼基础样式 */
+/* 骨骼基础样式 单手武器+盾牌 */
 .bone-arm-l{left:10px;top:-7px; z-index:100}
 .bone-arm-l-2{left:19px; top:28px; z-index:100;}
 .bone-hand-l{ left:-2px; top:12px; z-index:100}
@@ -51,10 +28,20 @@ body .current{}
 .bone-leg-r{left:-3px;top:35px; z-index:100}
 .bone-foot-r{left:-4px;top:15px; z-index:100}
 
-/* 装备icon */
-.iwa001 { background:url(../images/icon/item1.png) no-repeat 0px 0px;}
-.iwa002 { background:url(../images/icon/item1.png) no-repeat -56px 0px;}
-.iwa003 { background:url(../images/icon/item2.png) no-repeat 0px 0px;}
-.iwa004 { background:url(../images/icon/item3.png) no-repeat 0px 0px;}
+/* 单手剑骨骼造型 */
+.sword .bone-arm-r{left:-17px;top:7px; z-index:100}
 
 /* 素体造型 */
+.arm-l01-1-none{ z-index:100;background:url(../images/character/armleft/male01-1.png) no-repeat; width:34px; height:49px;left:-6px;top:-10px;}
+.arm-l01-2-none{ z-index:100;background:url(../images/character/armleft/male01-2.png) no-repeat; width:18px; height:24px;left:-8px;top:-6px;}
+.body01-none{ z-index:100;background:url(../images/character/body/male01.png) no-repeat; width:36px; height:47px;left:-17px;top:-40px;}
+
+
+.arm-r01-1-none{ z-index:100;background:url(../images/character/armright/male01-1.png) no-repeat; width:46px; height:43px;left:-25px;top:-7px;}
+.arm-r01-2-none{ z-index:100;background:url(../images/character/armright/male01-2.png) no-repeat; width:46px; height:43px;left:-15px;top:-7px;}
+
+
+.leg-l01-none{ z-index:100;background:url(../images/character/legleft/male01.png) no-repeat; width:24px; height:29px;left:-8px;top:-2px;}
+.foot-l01-none{ z-index:100;background:url(../images/character/footleft/male01.png) no-repeat; width:24px; height:29px;left:-15px;top:-16px;}
+.leg-r01-none{ z-index:100;background:url(../images/character/legright/male01.png) no-repeat; width:26px; height:28px;left:-23px;top:-2px;}
+.foot-r01-none{ z-index:100;background:url(../images/character/footright/male01.png) no-repeat; width:26px; height:28px;left:-18px;top:-18px;}

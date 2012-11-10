@@ -18,8 +18,8 @@ body .current{}
 .bone-face{left:-43px; top:-31px; z-index:100}
 .bone-head{left:2px;top:-4px; z-index:100}
 .bone-hair{left:10px;top:-63px; z-index:100}
-.bone-arm-r{left:-17px;top:7px; z-index:100}
-.bone-arm-r-2{left:-16px;top:14px; z-index:100}
+.bone-arm-r{left:-17px;top:1px; z-index:100;-webkit-transform:rotate(-26deg);-moz-transform:rotate(26deg);}
+.bone-arm-r-2{left:-16px;top:14px; z-index:100;-webkit-transform:rotate(-2deg);-moz-transform:rotate(-2deg);}
 .bone-hand-r{left:-9px; top:8px; z-index:100}
 .bone-weapon{left:-8px;top:1px; z-index:100}
 .bone-body{left:0px;top:37px; z-index:100}
@@ -29,18 +29,20 @@ body .current{}
 .bone-foot-r{left:-4px;top:15px; z-index:100}
 
 /* 单手剑骨骼造型 */
-.sword .bone-arm-r{left:-17px;top:7px; z-index:100}
+.sword .bone-arm-r{left:-17px;top:7px; z-index:100;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);}
+.sword .bone-arm-r-2{left:-16px;top:14px; z-index:100;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);}
 
 /* 素体造型 */
+.face01-1{ z-index:100;background:url(../images/character/face/01-1.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
+.face01-2{ z-index:100;background:url(../images/character/face/01-2.png) no-repeat; width:41px; height:41px;left:0px;top:0px;}
+.head01{ z-index:100;background:url(../images/character/head/01.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
+.head02{ z-index:100;background:url(../images/character/head/02.png) no-repeat; width:113px; height:103px;left:-49px;top:-86px;}
+.hair01{ z-index:100;background:url(../images/character/hair/01.png) no-repeat; width:59px; height:47px;left:-4px;top:-24px;}
+.body01-none{ z-index:100;background:url(../images/character/body/male01.png) no-repeat; width:36px; height:47px;left:-17px;top:-40px;}
 .arm-l01-1-none{ z-index:100;background:url(../images/character/armleft/male01-1.png) no-repeat; width:34px; height:49px;left:-6px;top:-10px;}
 .arm-l01-2-none{ z-index:100;background:url(../images/character/armleft/male01-2.png) no-repeat; width:18px; height:24px;left:-8px;top:-6px;}
-.body01-none{ z-index:100;background:url(../images/character/body/male01.png) no-repeat; width:36px; height:47px;left:-17px;top:-40px;}
-
-
 .arm-r01-1-none{ z-index:100;background:url(../images/character/armright/male01-1.png) no-repeat; width:46px; height:43px;left:-25px;top:-7px;}
 .arm-r01-2-none{ z-index:100;background:url(../images/character/armright/male01-2.png) no-repeat; width:46px; height:43px;left:-15px;top:-7px;}
-
-
 .leg-l01-none{ z-index:100;background:url(../images/character/legleft/male01.png) no-repeat; width:24px; height:29px;left:-8px;top:-2px;}
 .foot-l01-none{ z-index:100;background:url(../images/character/footleft/male01.png) no-repeat; width:24px; height:29px;left:-15px;top:-16px;}
 .leg-r01-none{ z-index:100;background:url(../images/character/legright/male01.png) no-repeat; width:26px; height:28px;left:-23px;top:-2px;}

@@ -18,7 +18,7 @@ body .current{}
 .bone-face{left:-43px; top:-31px; z-index:100}
 .bone-head{left:2px;top:-4px; z-index:100}
 .bone-hair{left:10px;top:-63px; z-index:100}
-.bone-arm-r{left:-17px;top:1px; z-index:100;-webkit-transform:rotate(-26deg);-moz-transform:rotate(26deg);}
+.bone-arm-r{left:-17px;top:1px; z-index:100;-webkit-transform:rotate(-26deg);-moz-transform:rotate(-26deg);}
 .bone-arm-r-2{left:-16px;top:14px; z-index:100;-webkit-transform:rotate(-2deg);-moz-transform:rotate(-2deg);}
 .bone-hand-r{left:-9px; top:8px; z-index:100}
 .bone-weapon{left:-8px;top:1px; z-index:100}

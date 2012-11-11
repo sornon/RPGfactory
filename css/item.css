@@ -39,11 +39,11 @@
 
 .armor1 { background:url(../images/icon/item1.png) no-repeat 0px 0px;}
 .sword1 { background:url(../images/icon/item2.png) no-repeat 0px 0px;}
-.leg1,
-.foot1,
-.wrister1,
+.leg1{ background:url(../images/icon/item1.png) no-repeat -112px 0px;}
+.foot1{ background:url(../images/icon/item1.png) no-repeat -168px 0px;}
+.wrister1{ background:url(../images/icon/item1.png) no-repeat -224px 0px;}
+.shoulder1{background:url(../images/icon/item1.png) no-repeat -280px 0px;}
 .waist1,
 .neck1,
-.cloak1,
-.shoulder1{ background:#000}
+.cloak1{ background:#000}
 

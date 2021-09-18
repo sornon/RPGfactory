@@ -218,7 +218,7 @@ var mod_modify = {
             mod_modify.eye($(this))
         });
 		
-		$('#animate_list select').click(function(){
+		$('#animate_list select').change(function(){
 			var a = $(this).val();
 			if(mod_modify.$current && mod_modify.$current.closest('.base').size()>0){
 				mod_modify.$current.closest('.base').find('.unit').removeClass().addClass('unit '+a);
